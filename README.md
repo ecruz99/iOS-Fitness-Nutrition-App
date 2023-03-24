@@ -28,3 +28,5 @@ Our app will be a workout and nutrition app that allows a user to keep track of 
 
 ## Other
 - One DataStore to save information (templates, completed workouts, personal food bank, and nutritional info of food eaten throughout the day)
+
+## Jon Approved 3/22/23
