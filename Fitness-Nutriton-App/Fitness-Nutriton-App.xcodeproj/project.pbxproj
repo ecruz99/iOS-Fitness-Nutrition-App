@@ -11,6 +11,7 @@
 		CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93E629D15D76006E4CF6 /* ContentView.swift */; };
 		CCEA93E929D15D7A006E4CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */; };
 		CCEA93EC29D15D7A006E4CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */; };
+		CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		CCEA93E629D15D76006E4CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMR Calculator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		CCEA93E329D15D76006E4CF6 /* Fitness-Nutriton-App */ = {
 			isa = PBXGroup;
 			children = (
+				CCEA93F229D15E61006E4CF6 /* Views */,
 				CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */,
 				CCEA93E629D15D76006E4CF6 /* ContentView.swift */,
 				CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CCEA93F229D15E61006E4CF6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */,
+				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
