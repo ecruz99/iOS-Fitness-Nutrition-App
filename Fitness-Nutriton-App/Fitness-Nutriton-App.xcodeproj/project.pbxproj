@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F7C29D48CBF00D16475 /* Food.swift */; };
+		B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F7E29D48E6200D16475 /* TabContainer.swift */; };
+		B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F8029D48F4600D16475 /* NutritionPage.swift */; };
+		B6F82F8429D48FA900D16475 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F8329D48FA900D16475 /* DataStore.swift */; };
 		CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFEB29D3A47D00F94F09 /* User.swift */; };
 		CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */; };
 		CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93E629D15D76006E4CF6 /* ContentView.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6F82F7C29D48CBF00D16475 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		B6F82F7E29D48E6200D16475 /* TabContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainer.swift; sourceTree = "<group>"; };
+		B6F82F8029D48F4600D16475 /* NutritionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionPage.swift; sourceTree = "<group>"; };
+		B6F82F8329D48FA900D16475 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		CCB0FFEB29D3A47D00F94F09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CCEA93E129D15D76006E4CF6 /* Fitness-Nutriton-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness-Nutriton-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fitness_Nutriton_App.swift; sourceTree = "<group>"; };
@@ -36,10 +44,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6F82F8229D48F9B00D16475 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B6F82F8329D48FA900D16475 /* DataStore.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		CCB0FFEA29D3A46C00F94F09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CCB0FFEB29D3A47D00F94F09 /* User.swift */,
+				B6F82F7C29D48CBF00D16475 /* Food.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -63,6 +80,7 @@
 		CCEA93E329D15D76006E4CF6 /* Fitness-Nutriton-App */ = {
 			isa = PBXGroup;
 			children = (
+				B6F82F8229D48F9B00D16475 /* API */,
 				CCB0FFEA29D3A46C00F94F09 /* Models */,
 				CCEA93F229D15E61006E4CF6 /* Views */,
 				CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */,
@@ -85,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
+				B6F82F8029D48F4600D16475 /* NutritionPage.swift */,
+				B6F82F7E29D48E6200D16475 /* TabContainer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,7 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */,
+				B6F82F8429D48FA900D16475 /* DataStore.swift in Sources */,
 				CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */,
+				B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */,
+				B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */,
+				B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */,
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,
 			);
