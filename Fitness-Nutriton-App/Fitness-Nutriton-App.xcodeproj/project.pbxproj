@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFEB29D3A47D00F94F09 /* User.swift */; };
+		CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFED29D496CE00F94F09 /* Workout.swift */; };
 		CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */; };
 		CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93E629D15D76006E4CF6 /* ContentView.swift */; };
 		CCEA93E929D15D7A006E4CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */; };
 		CCEA93EC29D15D7A006E4CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */; };
 		CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */; };
+		CCF3361629D5494200AA0CA3 /* WorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */; };
+		CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CCB0FFEB29D3A47D00F94F09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CCB0FFED29D496CE00F94F09 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		CCEA93E129D15D76006E4CF6 /* Fitness-Nutriton-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness-Nutriton-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fitness_Nutriton_App.swift; sourceTree = "<group>"; };
 		CCEA93E629D15D76006E4CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMR Calculator.swift"; sourceTree = "<group>"; };
+		CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplate.swift; sourceTree = "<group>"; };
+		CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				CCB0FFEB29D3A47D00F94F09 /* User.swift */,
+				CCB0FFED29D496CE00F94F09 /* Workout.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -85,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
+				CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */,
+				CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +171,9 @@
 				CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */,
 				CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */,
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
+				CCF3361629D5494200AA0CA3 /* WorkoutTemplate.swift in Sources */,
+				CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */,
+				CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
