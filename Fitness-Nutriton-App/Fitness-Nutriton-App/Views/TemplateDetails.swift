@@ -12,9 +12,17 @@ struct TemplateDetails: View {
     var body: some View {
         VStack(alignment: .leading){
             Text(template.name)
+                .font(.title)
                 .bold()
             ForEach(template.exercises){exercise in
                 Text(exercise.name)
+            }
+        }
+        .toolbar{
+            ToolbarItem(placement:.navigationBarTrailing){
+                Button("Edit"){
+                    
+                }
             }
         }
     }

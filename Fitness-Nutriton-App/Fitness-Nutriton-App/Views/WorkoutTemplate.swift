@@ -5,18 +5,29 @@ struct WorkoutTemplateView: View {
     
     var body: some View {
         NavigationStack{
-            ForEach(templates) { template in
-                VStack(alignment: .leading){
-                    Text("Template: \(template.name)")
-                        .bold()
-                    ForEach(template.exercises){ exercise in
-                        Text(exercise.name)
+            List(templates) { template in
+                NavigationLink(destination: TemplateDetails(template: template)){
+                    VStack(alignment: .leading){
+                        Text(template.name)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                        ForEach(template.exercises){ exercise in
+                            Text("\(exercise.name)  (\(exercise.muscle))")
+                        }
                     }
-                    Spacer()
                 }
+                
             }
             .navigationTitle("Templates")
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button("Add New Template"){
+                        
+                    }
+                }
+            }
         }
+        
     }
 }
 
