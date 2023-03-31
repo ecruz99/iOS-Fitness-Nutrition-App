@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct WorkoutTemplateView: View {
-    let templates = WorkoutTemplate.previewData
+    
+    @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
         NavigationStack{
-            List(templates) { template in
+            List(dataStore.templates) { template in
                 NavigationLink(destination: TemplateDetails(template: template)){
                     VStack(alignment: .leading){
                         Text(template.name)
@@ -34,5 +35,6 @@ struct WorkoutTemplateView: View {
 struct WorkoutTemplateView_Previews: PreviewProvider {
     static var previews: some View {
         WorkoutTemplateView()
+            .environmentObject(DataStore())
     }
 }

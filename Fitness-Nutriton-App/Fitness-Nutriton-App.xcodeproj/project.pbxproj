@@ -20,6 +20,7 @@
 		CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */; };
 		CCF3361629D5494200AA0CA3 /* WorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */; };
 		CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */; };
+		CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361929D698CA00AA0CA3 /* MainFitness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMR Calculator.swift"; sourceTree = "<group>"; };
 		CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplate.swift; sourceTree = "<group>"; };
 		CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetails.swift; sourceTree = "<group>"; };
+		CCF3361929D698CA00AA0CA3 /* MainFitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFitness.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +111,11 @@
 		CCEA93F229D15E61006E4CF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
-				CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */,
 				CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */,
+				CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */,
+				CCF3361929D698CA00AA0CA3 /* MainFitness.swift */,
 				B6F82F8029D48F4600D16475 /* NutritionPage.swift */,
+				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
 				B6F82F7E29D48E6200D16475 /* TabContainer.swift */,
 			);
 			path = Views;
@@ -193,6 +196,7 @@
 				CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */,
 				B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */,
 				B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */,
+				CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */,
 				B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */,
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
 				CCF3361629D5494200AA0CA3 /* WorkoutTemplate.swift in Sources */,

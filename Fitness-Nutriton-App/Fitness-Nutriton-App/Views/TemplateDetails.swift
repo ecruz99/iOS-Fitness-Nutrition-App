@@ -3,6 +3,11 @@ import SwiftUI
 
 struct TemplateDetails: View {
     let template: WorkoutTemplate
+    
+    @EnvironmentObject var dataStore: DataStore
+    
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         VStack(alignment: .leading){
             Text(template.name)
@@ -11,6 +16,15 @@ struct TemplateDetails: View {
             ForEach(template.exercises){exercise in
                 Text(exercise.name)
             }
+            NavigationLink(destination: WorkoutTemplateView()){
+                Button("Delete Template"){
+                    dataStore.deleteTemplate(template)
+                    presentationMode.wrappedValue.dismiss()
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+            }
+            
         }
         .toolbar{
             ToolbarItem(placement:.navigationBarTrailing){
