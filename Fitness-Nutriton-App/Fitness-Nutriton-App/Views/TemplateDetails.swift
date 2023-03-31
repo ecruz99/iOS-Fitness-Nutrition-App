@@ -1,9 +1,3 @@
-//
-//  TemplateDetails.swift
-//  Fitness-Nutriton-App
-//
-//  Created by Erik Cruz on 3/30/23.
-//
 
 import SwiftUI
 
