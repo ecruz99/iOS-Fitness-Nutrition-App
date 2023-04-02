@@ -18,9 +18,11 @@
 		CCEA93E929D15D7A006E4CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */; };
 		CCEA93EC29D15D7A006E4CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */; };
 		CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */; };
-		CCF3361629D5494200AA0CA3 /* WorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */; };
+		CCF3361629D5494200AA0CA3 /* WorkoutTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361529D5494200AA0CA3 /* WorkoutTemplates.swift */; };
 		CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */; };
 		CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361929D698CA00AA0CA3 /* MainFitness.swift */; };
+		CCF3361C29D9412A00AA0CA3 /* ExerciseTemplateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361B29D9412A00AA0CA3 /* ExerciseTemplateForm.swift */; };
+		CCF3361E29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +38,11 @@
 		CCEA93E829D15D7A006E4CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCEA93EB29D15D7A006E4CF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BMR Calculator.swift"; sourceTree = "<group>"; };
-		CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplate.swift; sourceTree = "<group>"; };
+		CCF3361529D5494200AA0CA3 /* WorkoutTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplates.swift; sourceTree = "<group>"; };
 		CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDetails.swift; sourceTree = "<group>"; };
 		CCF3361929D698CA00AA0CA3 /* MainFitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFitness.swift; sourceTree = "<group>"; };
+		CCF3361B29D9412A00AA0CA3 /* ExerciseTemplateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTemplateForm.swift; sourceTree = "<group>"; };
+		CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplateForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */,
-				CCF3361529D5494200AA0CA3 /* WorkoutTemplate.swift */,
+				CCF3361529D5494200AA0CA3 /* WorkoutTemplates.swift */,
+				CCF3361B29D9412A00AA0CA3 /* ExerciseTemplateForm.swift */,
+				CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */,
 				CCF3361929D698CA00AA0CA3 /* MainFitness.swift */,
 				B6F82F8029D48F4600D16475 /* NutritionPage.swift */,
 				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
@@ -199,7 +205,9 @@
 				CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */,
 				B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */,
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
-				CCF3361629D5494200AA0CA3 /* WorkoutTemplate.swift in Sources */,
+				CCF3361C29D9412A00AA0CA3 /* ExerciseTemplateForm.swift in Sources */,
+				CCF3361E29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift in Sources */,
+				CCF3361629D5494200AA0CA3 /* WorkoutTemplates.swift in Sources */,
 				CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */,
 				CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,

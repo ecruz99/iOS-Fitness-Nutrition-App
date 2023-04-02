@@ -19,5 +19,27 @@ class DataStore: ObservableObject {
       }
     }
     
+    func deleteExerciseTemplate(_ template: WorkoutTemplate, _ exercise:ExerciseTemplate){
+        if let index = templates.firstIndex(where: {$0.id == template.id}){
+            if let index2 = templates[index].exercises.firstIndex(where: {$0.id == exercise.id}){
+                templates[index].exercises.remove(at: index2)
+            }
+        }
+    }
     
+    func addExerciseTemplate (_ template: WorkoutTemplate, _ exercise: ExerciseTemplate){
+        if let index = templates.firstIndex(where: {$0.id == template.id}){
+            templates[index].exercises.append(exercise)
+        }
+    }
+    
+    func addWorkoutTemplate(_ template: WorkoutTemplate){
+        templates.append(template)
+    }
+    
+    func updateWorkoutTemplate(_ template: WorkoutTemplate){
+        if let index = templates.firstIndex(where: {$0.id == template.id} ) {
+            templates[index] = template
+        }
+    }
 }
