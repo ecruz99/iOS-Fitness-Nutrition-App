@@ -18,13 +18,13 @@ struct MainFitness: View {
                 .padding(.leading, 10)
             HStack{
                 //This Text will eventually have navigationlink or sheet for a workout
-                Text("Begin New Workout")
-                    .foregroundColor(.blue)
-                    .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(.blue, lineWidth: 4))
-                    .padding(.leading, 10)
+                
+                    Text("Begin New Workout")
+                        .foregroundColor(.white)
+                        .frame(width: 150, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
+                        .padding(.leading, 10)
+                
                 Text("Begin a workout with no template")
                     .multilineTextAlignment(.center)
             }
@@ -33,11 +33,9 @@ struct MainFitness: View {
             HStack{
                 NavigationLink(destination: WorkoutTemplates()){
                     Text("My Templates")
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.purple, lineWidth: 4))
-                        .tint(.purple)
+                        .foregroundColor(.white)
+                        .frame(width: 150, height: 50)
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.purple).shadow(radius: 3))
                 }
                 .padding(.trailing)
                 Text("View/edit templates or begin workout from a template")
@@ -45,6 +43,17 @@ struct MainFitness: View {
                     .padding(.trailing, 5)
             }
             .padding(.leading, 10)
+            .padding(.bottom, 40)
+            HStack{
+                //This Text will eventually have navigationlink or sheet for a workout
+                Text("Workout History")
+                    .foregroundColor(.white)
+                    .frame(width: 150, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.orange).shadow(radius: 3))
+                    .padding(.leading, 10)
+                Text("View your completed workouts")
+                    .multilineTextAlignment(.center)
+            }
             Spacer()
         }
     }

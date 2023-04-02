@@ -20,10 +20,13 @@ struct WorkoutTemplates: View {
                         Text(template.name)
                             .font(.title2)
                             .fontWeight(.semibold)
+                            .padding(.bottom, 2)
                         ForEach(template.exercises){ exercise in
                             Text("\(exercise.name)  (\(exercise.muscle))")
+                                .padding(.bottom, 1)
                         }
                     }
+                    .padding(.bottom, 10)
                 }
                 
             }

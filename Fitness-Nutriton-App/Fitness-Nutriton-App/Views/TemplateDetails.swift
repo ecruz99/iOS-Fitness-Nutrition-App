@@ -37,7 +37,7 @@ struct TemplateDetails: View {
                     .padding(.top)
                     .padding(.bottom, 1)
                     .fontWeight(.semibold)
-                NavigationLink(destination: WorkoutTemplates()){
+                NavigationLink(destination: TemplateDetails(template: template)){
                     Button("Delete Exercise"){
                         dataStore.deleteExerciseTemplate(template, exercise)
                     }
