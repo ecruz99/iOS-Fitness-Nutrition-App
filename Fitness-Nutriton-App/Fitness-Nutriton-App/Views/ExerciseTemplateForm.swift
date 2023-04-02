@@ -20,7 +20,7 @@ struct ExerciseTemplateForm: View {
                 
             }
             VStack(alignment: .leading){
-                Text("Search Bar Here")
+                Text("Search Bar Here (2 search bars? one by exercise name, one by muscle group)")
                     .padding()
                 Text("API Results Here")
                     .padding()
