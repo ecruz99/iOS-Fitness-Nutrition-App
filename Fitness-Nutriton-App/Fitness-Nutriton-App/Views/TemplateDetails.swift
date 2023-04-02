@@ -33,8 +33,10 @@ struct TemplateDetails: View {
             }
             ForEach(template.exercises){exercise in
                 Text("\(exercise.name)  (\(exercise.muscle))")
+                    .font(.title3)
                     .padding(.top)
                     .padding(.bottom, 1)
+                    .fontWeight(.semibold)
                 NavigationLink(destination: WorkoutTemplates()){
                     Button("Delete Exercise"){
                         dataStore.deleteExerciseTemplate(template, exercise)
