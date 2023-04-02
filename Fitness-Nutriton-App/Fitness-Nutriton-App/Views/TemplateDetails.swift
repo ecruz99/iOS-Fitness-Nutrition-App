@@ -17,7 +17,7 @@ struct TemplateDetails: View {
     @State var editWorkoutTemplateFormData = WorkoutTemplate.FormData()
     
     var body: some View {
-        VStack(alignment: .center){
+        ScrollView{
             HStack{
                 Text(template.name)
                     .font(.title)
@@ -48,7 +48,7 @@ struct TemplateDetails: View {
             }
             .buttonStyle(.borderedProminent)
             .tint(.green)
-            Spacer()
+            .padding(.bottom, 50)
             NavigationLink(destination: WorkoutTemplates()){
                 Button("Delete Template"){
                     dataStore.deleteTemplate(template)
