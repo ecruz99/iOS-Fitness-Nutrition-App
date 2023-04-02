@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct WorkoutHistory: View {
-    let workouts = Workout.previewData
+    
+    @EnvironmentObject var dataStore: DataStore
     
     var body: some View {
         ScrollView{
@@ -16,7 +17,7 @@ struct WorkoutHistory: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top, 10)
-            ForEach(Workout.reverseSort(workouts)) { workout in
+            ForEach(Workout.reverseSort(dataStore.workouts)) { workout in
                 VStack(alignment: .leading){
                     Text(workout.name)
                         .padding(.bottom, 1)
@@ -58,5 +59,6 @@ struct WorkoutHistory: View {
 struct WorkoutHistory_Previews: PreviewProvider {
     static var previews: some View {
         WorkoutHistory()
+            .environmentObject(DataStore())
     }
 }
