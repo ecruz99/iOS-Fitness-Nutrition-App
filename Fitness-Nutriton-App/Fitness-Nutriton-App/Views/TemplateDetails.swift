@@ -51,6 +51,15 @@ struct TemplateDetails: View {
             .buttonStyle(.borderedProminent)
             .tint(.green)
             .padding(.bottom, 50)
+            
+            Text("Begin workout with this template")
+                .foregroundColor(.white)
+                .frame(width: 170, height: 50)
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
+                .padding(.bottom, 50)
+                .multilineTextAlignment(.center)
+            
+            
             NavigationLink(destination: WorkoutTemplates()){
                 Button("Delete Template"){
                     dataStore.deleteTemplate(template)

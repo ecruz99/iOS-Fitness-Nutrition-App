@@ -24,6 +24,7 @@ struct MainFitness: View {
                         .frame(width: 150, height: 50)
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
                         .padding(.leading, 10)
+                        .padding(.trailing, 10)
                 
                 Text("Begin a workout with no template")
                     .multilineTextAlignment(.center)
@@ -37,7 +38,7 @@ struct MainFitness: View {
                         .frame(width: 150, height: 50)
                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.purple).shadow(radius: 3))
                 }
-                .padding(.trailing)
+                .padding(.trailing, 10)
                 Text("View/edit templates or begin workout from a template")
                     .multilineTextAlignment(.center)
                     .padding(.trailing, 5)
@@ -45,12 +46,14 @@ struct MainFitness: View {
             .padding(.leading, 10)
             .padding(.bottom, 40)
             HStack{
-                //This Text will eventually have navigationlink or sheet for a workout
-                Text("Workout History")
-                    .foregroundColor(.white)
-                    .frame(width: 150, height: 50)
+                NavigationLink(destination: WorkoutHistory()){
+                    Text("Workout History")
+                        .foregroundColor(.white)
+                        .frame(width: 150, height: 50)
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.orange).shadow(radius: 3))
-                    .padding(.leading, 10)
+                        .padding(.leading, 10)
+                        .padding(.trailing, 10)
+                }
                 Text("View your completed workouts")
                     .multilineTextAlignment(.center)
             }

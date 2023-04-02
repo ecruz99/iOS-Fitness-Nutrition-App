@@ -13,6 +13,8 @@ class DataStore: ObservableObject {
     
     @Published var templates: [WorkoutTemplate] = WorkoutTemplate.previewData
     
+    @Published var workouts: [Workout] = Workout.previewData
+    
     func deleteTemplate(_ template: WorkoutTemplate) {
       if let index = templates.firstIndex(where: { $0.id == template.id }) {
         templates.remove(at: index)

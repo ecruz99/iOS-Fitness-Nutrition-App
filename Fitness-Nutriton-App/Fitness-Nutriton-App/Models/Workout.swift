@@ -58,25 +58,39 @@ struct ExerciseTemplate: Identifiable{
 }
 
 
-struct Workout{
+struct Workout: Identifiable{
+    var id: UUID = UUID()
     var name: String
     var exercises: [Exercise]
     var startedAt: Date = Date.now
+    
+    static func reverseSort(_ workouts: [Workout]) -> [Workout]{
+        return Array(workouts.sorted(by: {$0.startedAt > $1.startedAt}))
+    }
 }
 
-struct Exercise{
+struct Exercise: Identifiable{
+    var id: UUID = UUID()
     var name: String
     var muscle: String
     var activities: [Activity] = []
     
-    init(template: ExerciseTemplate) {
+    init(name: String, muscle: String, activities:[Activity]){
+        self.name = name
+        self.muscle = muscle
+        self.activities = activities
+    }
+    
+    init(template: ExerciseTemplate, activities: [Activity]) {
         self.name = template.name
         self.muscle = template.muscle
+        self.activities = activities
     }
 }
 
 
-struct Activity{
+struct Activity: Identifiable{
+    var id: UUID = UUID()
     var weight: Int
     var reps: Int
     var completed: Bool = false
@@ -85,7 +99,7 @@ struct Activity{
 
 extension Workout{
     static func startWorkoutFromTemplate(from template:WorkoutTemplate) -> Workout{
-        let workout = Workout(name: template.name, exercises: template.exercises.map { Exercise.init(template: $0)})
+        let workout = Workout(name: template.name, exercises: template.exercises.map { Exercise.init(template: $0, activities: [])})
         return workout
     }
 }
@@ -111,3 +125,26 @@ extension WorkoutTemplate{
     
 }
 
+extension Workout{
+    static let previewData = [
+        Workout(name: "First Workout",
+                exercises: [
+                Exercise(name: "Bench Press", muscle: "Chest", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10)]),
+                Exercise(name: "Incline Press", muscle: "Chest", activities: [Activity(weight: 80, reps: 10)])],
+               startedAt: Date(timeIntervalSinceReferenceDate: 223456789.0)),
+        Workout(name: "Second Workout",
+                exercises: [
+                Exercise(name: "Squats", muscle: "Quads", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10)])],
+                startedAt: Date(timeIntervalSinceReferenceDate: 223556789.0)),
+        Workout(name: "Third Workout",
+                exercises: [
+                Exercise(name: "Bicep Curls", muscle: "Bicep", activities: [Activity(weight: 25, reps: 10), Activity(weight: 30, reps: 10)]),
+                Exercise(name: "Preacher Curls", muscle: "Bicep", activities: [Activity(weight: 60, reps: 10)])],
+                startedAt: Date(timeIntervalSinceReferenceDate: 223856789.0)),
+        Workout(name: "Fourth Workout",
+                exercises: [
+                Exercise(name: "Bench Press", muscle: "Chest", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10)]),
+                Exercise(name: "Incline Press", muscle: "Chest", activities: [Activity(weight: 80, reps: 10)])],
+               startedAt: Date(timeIntervalSinceReferenceDate: 224856789.0))
+    ]
+}
