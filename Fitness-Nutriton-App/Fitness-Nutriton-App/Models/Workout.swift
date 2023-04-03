@@ -127,24 +127,34 @@ extension WorkoutTemplate{
 
 extension Workout{
     static let previewData = [
-        Workout(name: "First Workout",
+        
+        Workout(name: "Double Chest Workout",
                 exercises: [
-                Exercise(name: "Bench Press", muscle: "Chest", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10)]),
-                Exercise(name: "Incline Press", muscle: "Chest", activities: [Activity(weight: 80, reps: 10)])],
+                Exercise(name: "Bench Press", muscle: "Chest", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10), Activity(weight: 135, reps: 8)]),
+                Exercise(name: "Incline Press", muscle: "Chest", activities: [Activity(weight: 80, reps: 10), Activity(weight: 80, reps: 8), Activity(weight: 100, reps: 6)])],
                startedAt: Date(timeIntervalSinceReferenceDate: 223456789.0)),
-        Workout(name: "Second Workout",
+        
+        
+        Workout(name: "Quad Focused Leg Day",
                 exercises: [
-                Exercise(name: "Squats", muscle: "Quads", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10)])],
+                Exercise(name: "Squats", muscle: "Quads/Glutes", activities: [Activity(weight: 135, reps: 10), Activity(weight: 185, reps: 10), Activity(weight: 185, reps: 10)]),
+                Exercise(name: "Leg Curls", muscle: "Hamstrings", activities: [Activity(weight: 100, reps: 10), Activity(weight: 110, reps: 10), Activity(weight: 120, reps: 8)]),
+                Exercise(name: "Leg Extensions", muscle: "Quads", activities: [Activity(weight: 120, reps: 10), Activity(weight: 130, reps: 8), Activity(weight: 150, reps: 5)])],
                 startedAt: Date(timeIntervalSinceReferenceDate: 223556789.0)),
-        Workout(name: "Third Workout",
+        
+        
+        Workout(name: "Bicep Day",
                 exercises: [
                 Exercise(name: "Bicep Curls", muscle: "Bicep", activities: [Activity(weight: 25, reps: 10), Activity(weight: 30, reps: 10)]),
-                Exercise(name: "Preacher Curls", muscle: "Bicep", activities: [Activity(weight: 60, reps: 10)])],
+                Exercise(name: "Preacher Curls", muscle: "Bicep", activities: [Activity(weight: 60, reps: 10), Activity(weight: 60, reps: 10), Activity(weight: 70, reps: 8)])],
                 startedAt: Date(timeIntervalSinceReferenceDate: 223856789.0)),
-        Workout(name: "Fourth Workout",
+        
+        
+        Workout(name: "Two Chest, One Tricep Workout",
                 exercises: [
-                Exercise(name: "Bench Press", muscle: "Chest", activities: [Activity(weight: 100, reps: 10), Activity(weight: 100, reps: 10)]),
-                Exercise(name: "Incline Press", muscle: "Chest", activities: [Activity(weight: 80, reps: 10)])],
+                Exercise(name: "Bench Press", muscle: "Chest", activities: [Activity(weight: 135, reps: 10), Activity(weight: 135, reps: 10), Activity(weight: 155, reps: 9)]),
+                Exercise(name: "Incline Press", muscle: "Chest", activities: [Activity(weight: 80, reps: 10), Activity(weight: 80, reps: 10), Activity(weight: 100, reps: 8)]),
+                Exercise(name: "Tricep Cable Extension", muscle: "Tricep", activities: [Activity(weight: 30, reps: 12), Activity(weight: 35, reps: 12), Activity(weight: 40, reps: 10)])],
                startedAt: Date(timeIntervalSinceReferenceDate: 224856789.0))
     ]
 }
