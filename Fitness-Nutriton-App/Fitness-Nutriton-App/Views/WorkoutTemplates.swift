@@ -9,32 +9,20 @@ struct WorkoutTemplates: View {
     @State var newWorkoutTemplateFormData = WorkoutTemplate.FormData()
     
     var body: some View {
-        VStack{
+        ScrollView{
             Text("My Templates")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top, 20)
-            List(dataStore.templates) { template in
-                NavigationLink(destination: TemplateDetails(template: template)){
-                    VStack(alignment: .leading){
-                        Text(template.name)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding(.bottom, 2)
-                        ForEach(template.exercises){ exercise in
-                            Text("\(exercise.name)  (\(exercise.muscle))")
-                                .padding(.bottom, 1)
-                        }
-                    }
-                    .padding(.bottom, 10)
-                }
+            ForEach(dataStore.templates) { template in
+                SingleTemplate(template: template)
                 
             }
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button("Add New Template"){
-                        presentingWorkoutTemplate.toggle()
-                    }
+        }
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button("Add New Template"){
+                    presentingWorkoutTemplate.toggle()
                 }
             }
         }

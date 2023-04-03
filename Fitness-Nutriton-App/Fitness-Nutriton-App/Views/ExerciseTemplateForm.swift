@@ -19,12 +19,21 @@ struct ExerciseTemplateForm: View {
                 TextFieldWithLabel(label: "Muscle", text: $data.muscle, prompt: "Enter a muscle")
                 
             }
-            VStack(alignment: .leading){
+            .frame(maxHeight: 250)
+            ScrollView{
                 Text("Search Bar Here (2 search bars? one by exercise name, one by muscle group)")
                     .padding()
                 Text("API Results Here")
                     .padding()
                 Text("Clicking 'add' will autofill exercise name and muscle with that api results info")
+                    .padding()
+                Text("See what happens once this gets pushed up further into the form")
+                    .padding()
+                Text("See what happens once this gets pushed up further into the form")
+                    .padding()
+                Text("See what happens once this gets pushed up further into the form")
+                    .padding()
+                Text("See what happens once this gets pushed up further into the form")
                     .padding()
             }
         }
