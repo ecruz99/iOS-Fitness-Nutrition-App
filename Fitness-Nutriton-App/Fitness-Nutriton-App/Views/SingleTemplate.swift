@@ -11,28 +11,30 @@ struct SingleTemplate: View {
     let template: WorkoutTemplate
     
     var body: some View {
-        VStack(alignment: .leading){
-            
-            NavigationLink(destination: TemplateDetails(template: template)){
-                VStack(alignment: .leading){
-                    Text(template.name)
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .padding(.bottom, 2)
-                    ForEach(template.exercises){ exercise in
-                        Text("\(exercise.name)  (\(exercise.muscle))")
-                            .padding(.bottom, 1)
-                    }
+        
+        
+        NavigationLink(destination: TemplateDetails(template: template)){
+            VStack(alignment: .leading){
+                Text(template.name)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.bottom, 2)
+                    .foregroundColor(.black)
+                ForEach(template.exercises){ exercise in
+                    Text("\(exercise.name)  (\(exercise.muscle))")
+                        .padding(.bottom, 1)
+                        .foregroundColor(.black)
                 }
-                .padding(.bottom, 10)
             }
-            
+            .padding(.bottom, 10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(10)
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.purple.opacity(0.35)))
+            .padding()
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(10)
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.purple.opacity(0.35)))
-        .padding()
+        
     }
+    
 }
 
 struct SingleTemplate_Previews: PreviewProvider {

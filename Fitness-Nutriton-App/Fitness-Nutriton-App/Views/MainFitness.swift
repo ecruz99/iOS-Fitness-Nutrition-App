@@ -25,6 +25,7 @@ struct MainFitness: View {
                         .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
                         .padding(.leading, 10)
                         .padding(.trailing, 10)
+                        .multilineTextAlignment(.center)
                 
                 Text("Begin a workout with no template")
                     .multilineTextAlignment(.center)
