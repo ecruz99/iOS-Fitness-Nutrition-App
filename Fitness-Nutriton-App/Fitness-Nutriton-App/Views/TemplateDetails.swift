@@ -52,12 +52,14 @@ struct TemplateDetails: View {
             .tint(.green)
             .padding(.bottom, 50)
             
-            Text("Begin workout with this template")
-                .foregroundColor(.white)
-                .frame(width: 170, height: 50)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
-                .padding(.bottom, 50)
-                .multilineTextAlignment(.center)
+            NavigationLink(destination: WorkoutFromTemplate(workout: Workout.startWorkoutFromTemplate(from: template))){
+                Text("Begin workout with this template")
+                    .foregroundColor(.white)
+                    .frame(width: 170, height: 50)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
+                    .padding(.bottom, 50)
+                    .multilineTextAlignment(.center)
+            }
             
             
             NavigationLink(destination: WorkoutTemplates()){

@@ -15,6 +15,20 @@ class DataStore: ObservableObject {
     
     @Published var workouts: [Workout] = Workout.previewData
     
+    func addWorkout(_ workout: Workout){
+        workouts.append(workout)
+    }
+    
+    //!!!!!!!!!!!
+    //This wont work because the workout is not in workouts array when I'm trying to add an activity to an ongoing workout
+    func addActivity(_ workout: Workout, _ exercise: Exercise){
+        if let index = workouts.firstIndex(where: {$0.id == workout.id}){
+            if let index2 = workouts[index].exercises.firstIndex(where: {$0.id == exercise.id}){
+                workouts[index].exercises[index2].activities.append(Activity(weight: 0, reps: 0))
+            }
+        }
+    }
+    
     func deleteTemplate(_ template: WorkoutTemplate) {
       if let index = templates.firstIndex(where: { $0.id == template.id }) {
         templates.remove(at: index)

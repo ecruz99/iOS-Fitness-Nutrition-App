@@ -86,6 +86,13 @@ struct Exercise: Identifiable{
         self.muscle = template.muscle
         self.activities = activities
     }
+    
+    //Is this the right way to approach it????
+    func addActivity(_ exercise: Exercise) -> Exercise {
+        var exercise = exercise
+        exercise.activities.append(Activity(weight: 0, reps: 0))
+        return exercise
+    }
 }
 
 
