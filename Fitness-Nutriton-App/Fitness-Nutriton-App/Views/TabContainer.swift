@@ -14,7 +14,7 @@ struct TabContainer: View {
     var body: some View {
         TabView{
             NavigationView {
-                BMR_Calculator(user: dataStore.userList[0])
+                MainFitness()
             }
             .tabItem { Label("Fitness", systemImage: "figure.run") }
             NavigationView {
