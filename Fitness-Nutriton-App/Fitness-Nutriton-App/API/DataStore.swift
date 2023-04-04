@@ -27,16 +27,17 @@ class DataStore: ObservableObject {
                 workouts[index].exercises[index2].activities.append(Activity(weight: 0, reps: 0))
             }
         }
-
+    }
+    
     func updateFoodLog(food: Food) {
         foodLog.foods.append(food)
-
+        
     }
     
     func deleteTemplate(_ template: WorkoutTemplate) {
-      if let index = templates.firstIndex(where: { $0.id == template.id }) {
-        templates.remove(at: index)
-      }
+        if let index = templates.firstIndex(where: { $0.id == template.id }) {
+            templates.remove(at: index)
+        }
     }
     
     func deleteExerciseTemplate(_ template: WorkoutTemplate, _ exercise:ExerciseTemplate){
