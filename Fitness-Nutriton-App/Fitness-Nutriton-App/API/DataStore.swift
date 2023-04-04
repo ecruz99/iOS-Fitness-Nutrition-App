@@ -10,7 +10,7 @@ import SwiftUI
 
 class DataStore: ObservableObject {
     @Published var userList: [User] = User.previewData
-    
+    @Published var foodLog: FoodLog = FoodLog.previewData
     @Published var templates: [WorkoutTemplate] = WorkoutTemplate.previewData
     
     @Published var workouts: [Workout] = Workout.previewData
@@ -27,6 +27,10 @@ class DataStore: ObservableObject {
                 workouts[index].exercises[index2].activities.append(Activity(weight: 0, reps: 0))
             }
         }
+
+    func updateFoodLog(food: Food) {
+        foodLog.foods.append(food)
+
     }
     
     func deleteTemplate(_ template: WorkoutTemplate) {
