@@ -14,6 +14,7 @@ struct MainFitness: View {
             //cool color stuff with zstack
             //Color.gray.ignoresSafeArea()
             //Rectangle().fill(Gradient(colors: [.indigo.opacity(0.20), .purple])).ignoresSafeArea()
+            //Rectangle().fill(Gradient(colors: [.white, .black.opacity(0.55)])).ignoresSafeArea()
             VStack(alignment: .leading){
                 Text("Main Fitness Page")
                     .font(.title)
