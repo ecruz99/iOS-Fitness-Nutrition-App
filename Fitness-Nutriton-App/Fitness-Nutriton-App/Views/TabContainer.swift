@@ -18,7 +18,7 @@ struct TabContainer: View {
             }
             .tabItem { Label("Fitness", systemImage: "figure.run") }
             NavigationView {
-                NutritionPage()
+                NutritionPage(user: Binding.constant(dataStore.userList[0]))
             }
             .tabItem { Label("Nutrition", systemImage: "fork.knife") }
         }

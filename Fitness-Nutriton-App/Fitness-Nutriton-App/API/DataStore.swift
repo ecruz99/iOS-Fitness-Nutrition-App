@@ -10,8 +10,12 @@ import SwiftUI
 
 class DataStore: ObservableObject {
     @Published var userList: [User] = User.previewData
-    
+    @Published var foodLog: FoodLog = FoodLog.previewData
     @Published var templates: [WorkoutTemplate] = WorkoutTemplate.previewData
+    
+    func updateFoodLog(food: Food) {
+        foodLog.foods.append(food)
+    }
     
     func deleteTemplate(_ template: WorkoutTemplate) {
       if let index = templates.firstIndex(where: { $0.id == template.id }) {
