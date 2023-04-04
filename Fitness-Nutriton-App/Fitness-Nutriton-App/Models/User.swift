@@ -5,7 +5,6 @@ struct User: Identifiable{
     var age: Double
     var height: Double
     var weight: Double
-    
     var sex: Sex
     
     var BMR:Double {

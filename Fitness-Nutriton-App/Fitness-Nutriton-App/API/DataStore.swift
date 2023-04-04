@@ -10,6 +10,10 @@ import SwiftUI
 
 class DataStore: ObservableObject {
     @Published var userList: [User] = User.previewData
+    @Published var foodLog: FoodLog = FoodLog.previewData
     
+    func updateFoodLog(food: Food) {
+        foodLog.foods.append(food)
+    }
     
 }
