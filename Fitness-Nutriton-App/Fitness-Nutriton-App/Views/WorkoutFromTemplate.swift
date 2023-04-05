@@ -30,12 +30,12 @@ struct WorkoutFromTemplate: View {
                     }
                 }
                 
-                NavigationLink(destination: WorkoutFromTemplate( workout: workout)){
-                    
-                    Button("Add Set"){
-                        exercise.activities.append(Activity(weight: 0, reps: 0))
-                    }
+                
+                
+                Button("Add Set"){
+                    exercise.activities.append(Activity(weight: 0, reps: 0))
                 }
+                
             }
         }
         .navigationBarBackButtonHidden(true)
