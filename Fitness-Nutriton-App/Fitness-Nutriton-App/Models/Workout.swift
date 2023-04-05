@@ -75,23 +75,17 @@ struct Exercise: Identifiable{
     var muscle: String
     var activities: [Activity] = []
     
-    init(name: String, muscle: String, activities:[Activity]){
-        self.name = name
-        self.muscle = muscle
-        self.activities = activities
-    }
     
+    mutating func addActivity(){
+        self.activities.append(Activity(weight: 0, reps: 0))
+    }
+}
+
+extension Exercise {
     init(template: ExerciseTemplate, activities: [Activity]) {
         self.name = template.name
         self.muscle = template.muscle
         self.activities = activities
-    }
-    
-    //Is this the right way to approach it????
-    func addActivity(_ exercise: Exercise) -> Exercise {
-        var exercise = exercise
-        exercise.activities.append(Activity(weight: 0, reps: 0))
-        return exercise
     }
 }
 

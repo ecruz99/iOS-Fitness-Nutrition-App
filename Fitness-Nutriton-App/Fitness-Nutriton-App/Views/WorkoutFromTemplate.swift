@@ -18,7 +18,7 @@ struct WorkoutFromTemplate: View {
         VStack{
             Text(workout.name)
             Text(workout.startedAt.formatted(date: .abbreviated, time: .shortened))
-            ForEach(workout.exercises){exercise in
+            ForEach($workout.exercises){ $exercise in
                 Text(exercise.name)
                 ForEach(exercise.activities){activity in
                     HStack{
@@ -31,8 +31,9 @@ struct WorkoutFromTemplate: View {
                 }
                 
                 NavigationLink(destination: WorkoutFromTemplate( workout: workout)){
+                    
                     Button("Add Set"){
-                        exercise.addActivity(exercise)
+                        exercise.activities.append(Activity(weight: 0, reps: 0))
                     }
                 }
             }
@@ -55,6 +56,8 @@ struct WorkoutFromTemplate: View {
 
 struct WorkoutFromTemplate_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutFromTemplate(workout: Workout.startWorkoutFromTemplate(from: WorkoutTemplate.previewData[0]))
+        NavigationView {
+            WorkoutFromTemplate(workout: Workout.startWorkoutFromTemplate(from: WorkoutTemplate.previewData[0]))
+        }
     }
 }

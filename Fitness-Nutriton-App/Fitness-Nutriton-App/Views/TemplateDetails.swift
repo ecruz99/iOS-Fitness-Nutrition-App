@@ -6,7 +6,7 @@ struct TemplateDetails: View {
     
     @EnvironmentObject var dataStore: DataStore
     
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     
     @State var newExerciseTemplateFormData = ExerciseTemplate.FormData()
     
@@ -23,7 +23,7 @@ struct TemplateDetails: View {
                     .font(.title)
                     .bold()
                     .padding(.top, 40)
-
+                
                 Button("Edit name"){
                     editWorkoutTemplateFormData = template.dataForForm
                     presentingWorkoutTemplate.toggle()
@@ -37,12 +37,12 @@ struct TemplateDetails: View {
                     .padding(.top)
                     .padding(.bottom, 1)
                     .fontWeight(.semibold)
-                NavigationLink(destination: TemplateDetails(template: template)){
-                    Button("Delete Exercise"){
-                        dataStore.deleteExerciseTemplate(template, exercise)
-                    }
-                    .tint(.red)
+                
+                Button("Delete Exercise"){
+                    dataStore.deleteExerciseTemplate(template, exercise)
                 }
+                .tint(.red)
+                
                 .padding(.bottom)
             }
             Button("Add Exercise"){
@@ -62,14 +62,14 @@ struct TemplateDetails: View {
             }
             
             
-            NavigationLink(destination: WorkoutTemplates()){
-                Button("Delete Template"){
-                    dataStore.deleteTemplate(template)
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.red)
+            
+            Button("Delete Template"){
+                dataStore.deleteTemplate(template)
+                dismiss()
             }
+            .buttonStyle(.borderedProminent)
+            .tint(.red)
+            
             Spacer()
         }
         .sheet(isPresented: $presentingExerciseTemplate){
@@ -118,6 +118,9 @@ struct TemplateDetails: View {
 
 struct TemplateDetails_Previews: PreviewProvider {
     static var previews: some View {
-        TemplateDetails(template: WorkoutTemplate.previewData[0])
+        NavigationView {
+            TemplateDetails(template: WorkoutTemplate.previewData[0])
+                .environmentObject(DataStore())
+        }
     }
 }
