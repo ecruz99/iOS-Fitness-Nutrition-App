@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkoutFromTemplate: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
     
     @State var workout: Workout
     
@@ -42,12 +42,13 @@ struct WorkoutFromTemplate: View {
         .toolbar{
             ToolbarItem(placement: .navigationBarLeading){
                 Button("Cancel"){
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing){
                 Button("Finish Workout"){
                     dataStore.addWorkout(workout)
+                    dismiss()
                 }
             }
         }
