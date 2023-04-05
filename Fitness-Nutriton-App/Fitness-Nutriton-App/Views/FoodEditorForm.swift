@@ -45,7 +45,7 @@ struct FoodEditorForm: View {
                 TextField("", text: $data.carbs).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
             }
         }
-        Spacer()
+        Spacer(minLength: 30)
         Button(hasBeenAdded ? "Added!" : "Add Food to Daily Log") {
             let newFood = Food.create(from: data)
             dataStore.updateFoodLog(food: newFood)

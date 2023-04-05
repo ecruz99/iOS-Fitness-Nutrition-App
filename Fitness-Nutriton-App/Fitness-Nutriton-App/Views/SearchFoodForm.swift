@@ -8,19 +8,21 @@ struct SearchFoodForm: View {
     
     var body: some View {
         ScrollView {
-            TextField("Search", text: $searchTerm).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
-            Button("Search") {
-                Task {
-                    if !searchTerm.isEmpty {
-                        dataStore.filterFoodTemplates(searchTerm: searchTerm)
-                        displaySearch = true;
-                    } else {
-                        print("Empty search")
+            HStack {
+                TextField("Search", text: $searchTerm).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
+                Button("Search") {
+                    Task {
+                        if !searchTerm.isEmpty {
+                            dataStore.filterFoodTemplates(searchTerm: searchTerm)
+                            displaySearch = true;
+                        } else {
+                            print("Empty search")
+                        }
                     }
                 }
             }
             Spacer(minLength: 30)
-            Text("Search Results").font(.title2).frame(maxWidth: .infinity, alignment: .leading)
+            //Text("Search Results").font(.title2).frame(maxWidth: .infinity, alignment: .leading)
             if (displaySearch) {
                 MyFoodsSearchResults(
                     myFoodTemplates: dataStore.foodTemplates,
@@ -35,14 +37,15 @@ struct SearchFoodForm: View {
         var searchTerm: String
         
         var body: some View {
-            NavigationStack {
+            VStack(alignment: .leading) {
                 ForEach($dataStore.filteredFoods) { $food in
                     NavigationLink(
                         destination: NewFoodFromExisting(
                             data: $food.dataForForm,
                             food: food,
                             originalServingSize: food.servingSize)) {
-                        FoodDetail(food: food).frame(alignment: .leading)
+                                FoodDetail(food: food)
+                                    .frame(alignment: .leading).padding(.bottom, 8)
                     }
                 }
             }.padding(10)
@@ -61,7 +64,7 @@ struct NewFoodFromExisting: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(data.name).font(.title).bold().padding(.bottom, 20)
+            Text(data.name).font(.title).bold().padding(.bottom, 15)
             Text(String(format: "Macronutrients per %d%@", originalServingSize, data.servingSizeUnit.rawValue)).font(.headline).bold()
             VStack(alignment: .leading) {
                 Text(String(format: "Calories: %@", data.calories))
@@ -69,58 +72,62 @@ struct NewFoodFromExisting: View {
                 Text(String(format: "Fats: %@", data.fat))
                 Text(String(format: "Carbs: %@", data.carbs))
             }.padding(.bottom, 30)
-            HStack {
-                Text("Serving Size").font(.headline)
-                TextField("", text: $newServingSize).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
+            VStack(alignment: .center) {
+                HStack {
+                    Text("Serving Size").font(.headline)
+                    TextField("", text: $newServingSize).textFieldStyle(RoundedBorderTextFieldStyle()).frame(maxWidth: UIScreen.main.bounds.width * 0.2, minHeight: 40)
+                }.padding(.bottom, 20)
+                HStack {
+                    MacronutrientBox(nutrient: .calories, food: food, newSize: Double(newServingSize) ?? 0, originalSize: Double(originalServingSize))
+                    MacronutrientBox(nutrient: .protein, food: food, newSize: Double(newServingSize) ?? 0, originalSize: Double(originalServingSize))
+                    MacronutrientBox(nutrient: .fat, food: food, newSize: Double(newServingSize) ?? 0, originalSize: Double(originalServingSize))
+                    MacronutrientBox(nutrient: .carbs, food: food, newSize: Double(newServingSize) ?? 0, originalSize: Double(originalServingSize))
+                }.padding(.bottom, 30)
+                Button(hasBeenAdded ? "Added!" : "Add Food To Daily Log") {
+                    Task {
+                        if !newServingSize.isEmpty && !hasBeenAdded {
+                            let newFood = Food.create(from: Food.FormData(
+                                name: data.name,
+                                servingSize: newServingSize,
+                                servingSizeUnit: data.servingSizeUnit,
+                                calories: newAmount(quant: food.calories ?? 0, num: Double(newServingSize) ?? 0, denom: Double(originalServingSize)),
+                                protein: newAmount(quant: food.protein ?? 0, num: Double(newServingSize) ?? 0, denom: Double(originalServingSize)),
+                                fat: newAmount(quant: food.fat ?? 0, num: Double(newServingSize) ?? 0, denom: Double(originalServingSize)),
+                                carbs: newAmount(quant: food.carbs ?? 0, num: Double(newServingSize) ?? 0, denom: Double(originalServingSize)))
+                            )
+                            dataStore.updateFoodLog(food: newFood)
+                            dataStore.updateFoodTemplates(food: newFood)
+                            hasBeenAdded = true;
+                        }
+                    }
+                }.buttonStyle(.borderedProminent)
             }
-            HStack {
-                VStack(alignment: .center) {
-                    Text("Calories").bold()
-                    if food.calories != nil {
-                        Text(newAmount(quant: food.calories!, num: Double(newServingSize) ?? 0, denom: originalServingSize))
-                    }
-                }
-                VStack(alignment: .center) {
-                    Text("Protein").bold()
-                    if food.protein != nil {
-                        Text(newAmount(quant: food.protein!, num: Double(newServingSize) ?? 0, denom: originalServingSize))                    }
-                }
-                VStack(alignment: .center) {
-                    Text("Fat").bold()
-                    if food.fat != nil {
-                        Text(newAmount(quant: food.fat!, num: Double(newServingSize) ?? 0, denom: originalServingSize))                    }
-                }
-                VStack(alignment: .center) {
-                    Text("Carbs").bold()
-                    if food.carbs != nil {
-                        Text(newAmount(quant: food.carbs!, num: Double(newServingSize) ?? 0, denom: originalServingSize))                    }
-                }
-            }.padding(.bottom, 30)
-            Button(hasBeenAdded ? "Added!" : "Add Food To Daily Log") {
-                Task {
-                    if !newServingSize.isEmpty && !hasBeenAdded {
-                        let newFood = Food.create(from: Food.FormData(
-                            name: data.name,
-                            servingSize: newServingSize,
-                            servingSizeUnit: data.servingSizeUnit,
-                            calories: newAmount(quant: food.calories ?? 0, num: Double(newServingSize) ?? 0, denom: originalServingSize),
-                            protein: newAmount(quant: food.protein ?? 0, num: Double(newServingSize) ?? 0, denom: originalServingSize),
-                            fat: newAmount(quant: food.fat ?? 0, num: Double(newServingSize) ?? 0, denom: originalServingSize),
-                            carbs: newAmount(quant: food.carbs ?? 0, num: Double(newServingSize) ?? 0, denom: originalServingSize))
-                        )
-                        dataStore.updateFoodLog(food: newFood)
-                        dataStore.updateFoodTemplates(food: newFood)
-                        hasBeenAdded = true;
-                    }
-                }
-            }.buttonStyle(.borderedProminent)
             Spacer(minLength: 40)
         }.frame(maxWidth: UIScreen.main.bounds.width * 0.9, maxHeight: UIScreen.main.bounds.height * 0.8)
     }
 }
 
-func newAmount(quant: Int, num: Double, denom: Int) -> String {
-    let result: Double = Double(quant) * (num / Double(denom))
+struct MacronutrientBox: View {
+    let nutrient: Food.MacroNutrients
+    let food: Food
+    let newSize: Double
+    let originalSize: Double
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Text(nutrient.rawValue).bold()
+            switch nutrient {
+            case .calories : Text(newAmount(quant: food.calories ?? 0, num: newSize, denom: originalSize))
+            case .protein : Text(newAmount(quant: food.protein ?? 0, num: newSize, denom: originalSize))
+            case .fat : Text(newAmount(quant: food.fat ?? 0, num: newSize, denom: originalSize))
+            case .carbs : Text(newAmount(quant: food.carbs ?? 0, num: newSize, denom: originalSize))
+            }
+        }.frame(width: UIScreen.main.bounds.width * 0.2)
+    }
+}
+
+func newAmount(quant: Int, num: Double, denom: Double) -> String {
+    let result: Double = Double(quant) * (num / denom)
     let newQuantity = Int(result.rounded(.toNearestOrAwayFromZero))
     return String(newQuantity)
 }
