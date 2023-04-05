@@ -114,7 +114,7 @@ struct TemplateDetails: View {
                     }
             }
         }
-        .confirmationDialog("Delete Template?", isPresented: $deleteConfirm){
+        .confirmationDialog("Do you want to delete this template?", isPresented: $deleteConfirm, titleVisibility: .visible){
             Button("Delete", role: .destructive){
                 dataStore.deleteTemplate(template)
                 dismiss()
