@@ -12,6 +12,8 @@ class DataStore: ObservableObject {
     @Published var userList: [User] = User.previewData
     @Published var foodLog: FoodLog = FoodLog.previewData
     @Published var templates: [WorkoutTemplate] = WorkoutTemplate.previewData
+    @Published var foodTemplates: [Food] = Food.previewData
+    var filteredFoodTemplates: [Food] = []
     
     @Published var workouts: [Workout] = Workout.previewData
     
@@ -32,6 +34,20 @@ class DataStore: ObservableObject {
     func updateFoodLog(food: Food) {
         foodLog.foods.append(food)
         
+    }
+    
+    func updateFoodTemplates(food: Food) {
+        foodTemplates.append(food)
+    }
+    
+    func filterFoodTemplates(searchTerm: String) {
+        let filteredList = foodTemplates.filter({$0.name.contains(searchTerm)})
+        filteredFoodTemplates = filteredList
+    }
+    
+    var filteredFoods: [Food] {
+        get { filteredFoodTemplates }
+        set { filteredFoodTemplates = [] }
     }
     
     func deleteTemplate(_ template: WorkoutTemplate) {
