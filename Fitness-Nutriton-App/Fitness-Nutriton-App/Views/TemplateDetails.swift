@@ -16,6 +16,8 @@ struct TemplateDetails: View {
     
     @State var editWorkoutTemplateFormData = WorkoutTemplate.FormData()
     
+    @State private var deleteConfirm = false
+    
     var body: some View {
         ScrollView{
             HStack{
@@ -64,8 +66,7 @@ struct TemplateDetails: View {
             
             
             Button("Delete Template"){
-                dataStore.deleteTemplate(template)
-                dismiss()
+                deleteConfirm = true
             }
             .buttonStyle(.borderedProminent)
             .tint(.red)
@@ -111,6 +112,12 @@ struct TemplateDetails: View {
                             
                         }
                     }
+            }
+        }
+        .confirmationDialog("Delete Template?", isPresented: $deleteConfirm){
+            Button("Delete", role: .destructive){
+                dataStore.deleteTemplate(template)
+                dismiss()
             }
         }
     }
