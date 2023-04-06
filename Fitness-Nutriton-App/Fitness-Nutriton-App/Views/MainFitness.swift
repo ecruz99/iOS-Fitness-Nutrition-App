@@ -11,10 +11,7 @@ let col = LinearGradient(colors: [.orange, .red], startPoint: .top, endPoint: .b
 struct MainFitness: View {
     var body: some View {
         ZStack{
-            //cool color stuff with zstack
-            //Color.gray.ignoresSafeArea()
-            //Rectangle().fill(Gradient(colors: [.indigo.opacity(0.20), .purple])).ignoresSafeArea()
-            //Rectangle().fill(Gradient(colors: [.white, .black.opacity(0.55)])).ignoresSafeArea()
+            Rectangle().fill(Gradient(colors: [.blue.opacity(0.6), .black.opacity(0.25)])).ignoresSafeArea()
             VStack(alignment: .leading){
                 Text("Main Fitness Page")
                     .font(.title)
