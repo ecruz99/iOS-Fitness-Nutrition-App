@@ -11,7 +11,7 @@ let col = LinearGradient(colors: [.orange, .red], startPoint: .top, endPoint: .b
 struct MainFitness: View {
     var body: some View {
         ZStack{
-            Rectangle().fill(Gradient(colors: [.blue.opacity(0.6), .black.opacity(0.25)])).ignoresSafeArea()
+            Rectangle().fill(Gradient(colors: [.white.opacity(0.6), .red.opacity(0.25)])).ignoresSafeArea()
             VStack(alignment: .leading){
                 Text("Main Fitness Page")
                     .font(.title)
@@ -20,19 +20,20 @@ struct MainFitness: View {
                     .padding(.bottom, 20)
                     .padding(.leading, 10)
                 HStack{
-                    //This Text will eventually have navigationlink or sheet for a workout
-                    
-                    Text("Begin New Workout")
-                        .foregroundColor(.white)
-                        .frame(width: 150, height: 50)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
-                        .padding(.leading, 10)
-                        .padding(.trailing, 10)
-                        .multilineTextAlignment(.center)
+                    NavigationLink(destination: BlankWorkout()){
+                        Text("Begin New Workout")
+                            .foregroundColor(.white)
+                            .frame(width: 150, height: 50)
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
+                            .padding(.leading, 10)
+                            .padding(.trailing, 10)
+                            .multilineTextAlignment(.center)
+                    }
                     
                     Text("Begin a workout with no template")
                         .multilineTextAlignment(.center)
                 }
+                    
                 .padding(.bottom, 40)
                 
                 HStack{

@@ -79,6 +79,12 @@ struct Exercise: Identifiable{
     mutating func addActivity(){
         self.activities.append(Activity(weight: 0, reps: 0))
     }
+    
+    mutating func deleteActivity(_ activity: Activity){
+        if let index = self.activities.firstIndex(where: {$0.id == activity.id}){
+            self.activities.remove(at: index)
+        }
+    }
 }
 
 extension Exercise {

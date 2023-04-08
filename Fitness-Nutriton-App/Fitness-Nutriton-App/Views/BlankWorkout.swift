@@ -1,20 +1,18 @@
 //
-//  WorkoutFromTemplate.swift
+//  BlankWorkout.swift
 //  Fitness-Nutriton-App
 //
-//  Created by Erik Cruz on 4/3/23.
+//  Created by Erik Cruz on 4/8/23.
 //
 
 import SwiftUI
 
-struct WorkoutFromTemplate: View {
+struct BlankWorkout: View {
+    @State var workout = Workout(name: "Change Me!", exercises: [])
+    
     @Environment(\.dismiss) private var dismiss
     
-    @State var workout: Workout
-    
     @EnvironmentObject var dataStore: DataStore
-    
-    @State var deleteAct = false
     
     var body: some View {
         ScrollView{
@@ -96,10 +94,10 @@ struct WorkoutFromTemplate: View {
     }
 }
 
-struct WorkoutFromTemplate_Previews: PreviewProvider {
+struct BlankWorkout_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            WorkoutFromTemplate(workout: Workout.startWorkoutFromTemplate(from: WorkoutTemplate.previewData[0]))
+            BlankWorkout()
         }
     }
 }
