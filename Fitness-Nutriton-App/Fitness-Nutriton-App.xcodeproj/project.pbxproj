@@ -21,6 +21,7 @@
 		CC65C5FC29DABB4F00B9707A /* SingleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */; };
 		CC65C5FE29DB877900B9707A /* WorkoutFromTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */; };
 		CCAA76A429E182FB00F45B8C /* BlankWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */; };
+		CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA76A529E187C000F45B8C /* ExerciseForm.swift */; };
 		CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFEB29D3A47D00F94F09 /* User.swift */; };
 		CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFED29D496CE00F94F09 /* Workout.swift */; };
 		CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA93E429D15D76006E4CF6 /* Fitness_Nutriton_App.swift */; };
@@ -50,6 +51,7 @@
 		CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTemplate.swift; sourceTree = "<group>"; };
 		CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFromTemplate.swift; sourceTree = "<group>"; };
 		CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankWorkout.swift; sourceTree = "<group>"; };
+		CCAA76A529E187C000F45B8C /* ExerciseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseForm.swift; sourceTree = "<group>"; };
 		CCB0FFEB29D3A47D00F94F09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CCB0FFED29D496CE00F94F09 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		CCEA93E129D15D76006E4CF6 /* Fitness-Nutriton-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness-Nutriton-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 				CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */,
 				CC65C5F929DA3B0B00B9707A /* SingleWorkoutHistory.swift */,
 				CC65C5F729D9911600B9707A /* WorkoutHistory.swift */,
+				CCAA76A529E187C000F45B8C /* ExerciseForm.swift */,
 				CCF3361B29D9412A00AA0CA3 /* ExerciseTemplateForm.swift */,
 				CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */,
 				CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */,
@@ -256,6 +259,7 @@
 				CCF3361E29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift in Sources */,
 				CC65C5FE29DB877900B9707A /* WorkoutFromTemplate.swift in Sources */,
 				CCF3361629D5494200AA0CA3 /* WorkoutTemplates.swift in Sources */,
+				CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */,
 				CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */,
 				CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,

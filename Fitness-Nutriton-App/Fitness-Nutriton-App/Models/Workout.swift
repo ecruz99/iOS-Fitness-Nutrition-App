@@ -67,6 +67,10 @@ struct Workout: Identifiable{
     static func reverseSort(_ workouts: [Workout]) -> [Workout]{
         return Array(workouts.sorted(by: {$0.startedAt > $1.startedAt}))
     }
+    
+    mutating func addExercise(_ exercise: Exercise){
+        self.exercises.append(exercise)
+    }
 }
 
 struct Exercise: Identifiable{
@@ -84,6 +88,26 @@ struct Exercise: Identifiable{
         if let index = self.activities.firstIndex(where: {$0.id == activity.id}){
             self.activities.remove(at: index)
         }
+    }
+    
+    struct FormData {
+        var id: UUID = UUID()
+        var name: String = ""
+        var muscle: String = ""
+        var activities: [Activity] = []
+    }
+    
+    var dataForForm: FormData {
+        FormData(
+            id: id,
+            name: name,
+            muscle: muscle,
+            activities: activities
+        )
+    }
+    
+    static func create(from formData: FormData) -> Exercise {
+        Exercise(id: formData.id, name: formData.name, muscle: formData.muscle, activities: formData.activities)
     }
 }
 

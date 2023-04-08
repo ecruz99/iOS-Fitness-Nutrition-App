@@ -24,14 +24,6 @@ struct ExerciseTemplateForm: View {
                 .padding()
             Text("Clicking 'add' will autofill exercise name and muscle with that api results info")
                 .padding()
-            Text("See what happens once this gets pushed up further into the form")
-                .padding()
-            Text("See what happens once this gets pushed up further into the form")
-                .padding()
-            Text("See what happens once this gets pushed up further into the form")
-                .padding()
-            Text("See what happens once this gets pushed up further into the form")
-                .padding()
         }
         
     }

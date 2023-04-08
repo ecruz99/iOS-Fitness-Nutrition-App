@@ -14,7 +14,9 @@ struct WorkoutFromTemplate: View {
     
     @EnvironmentObject var dataStore: DataStore
     
-    @State var deleteAct = false
+    @State var newExerciseFormData = Exercise.FormData()
+    
+    @State var presentingExercise: Bool = false
     
     var body: some View {
         ScrollView{
@@ -78,6 +80,13 @@ struct WorkoutFromTemplate: View {
                 .padding(.bottom, 20)
                 
             }
+            
+            Button("Add Exercise"){
+                presentingExercise.toggle()
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
+            .padding(.bottom, 50)
         }
         .navigationBarBackButtonHidden(true)
         .toolbar{
@@ -91,6 +100,27 @@ struct WorkoutFromTemplate: View {
                     dataStore.addWorkout(workout)
                     dismiss()
                 }
+            }
+        }
+        .sheet(isPresented: $presentingExercise){
+            NavigationStack{
+                ExerciseForm(data: $newExerciseFormData)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarLeading){
+                            Button("Cancel"){
+                                presentingExercise = false
+                                newExerciseFormData = Exercise.FormData()
+                            }
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button("Save"){
+                                let newExercise = Exercise.create(from: newExerciseFormData)
+                                workout.addExercise(newExercise)
+                                presentingExercise = false
+                                newExerciseFormData = Exercise.FormData()
+                            }
+                        }
+                    }
             }
         }
     }
