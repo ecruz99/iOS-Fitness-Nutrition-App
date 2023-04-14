@@ -158,12 +158,12 @@
 				CCF3361B29D9412A00AA0CA3 /* ExerciseTemplateForm.swift */,
 				CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */,
 				CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */,
-				CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */,
 				CCF3361929D698CA00AA0CA3 /* MainFitness.swift */,
 				B6F82F8029D48F4600D16475 /* NutritionPage.swift */,
 				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
 				B6F82F7E29D48E6200D16475 /* TabContainer.swift */,
 				B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */,
+				CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-let col = LinearGradient(colors: [.orange, .red], startPoint: .top, endPoint: .bottom)
 struct MainFitness: View {
+    let workout = Workout(name: "Change Me", exercises: [])
     var body: some View {
         ZStack{
             Rectangle().fill(Gradient(colors: [.white.opacity(0.6), .red.opacity(0.25)])).ignoresSafeArea()
@@ -20,7 +20,7 @@ struct MainFitness: View {
                     .padding(.bottom, 20)
                     .padding(.leading, 10)
                 HStack{
-                    NavigationLink(destination: BlankWorkout()){
+                    NavigationLink(destination: WorkoutFromTemplate(workout: Workout(name: "Change Me", exercises: []))){
                         Text("Begin New Workout")
                             .foregroundColor(.white)
                             .frame(width: 150, height: 50)

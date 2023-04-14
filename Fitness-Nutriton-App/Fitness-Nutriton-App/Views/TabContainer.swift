@@ -13,11 +13,11 @@ struct TabContainer: View {
   
     var body: some View {
         TabView{
-            NavigationView {
+            NavigationStack {
                 MainFitness()
             }
             .tabItem { Label("Fitness", systemImage: "figure.run") }
-            NavigationView {
+            NavigationStack {
                 NutritionPage(user: Binding.constant(dataStore.userList[0]))
             }
             .tabItem { Label("Nutrition", systemImage: "fork.knife") }
