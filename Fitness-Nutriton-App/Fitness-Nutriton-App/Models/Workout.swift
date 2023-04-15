@@ -33,6 +33,7 @@ struct WorkoutTemplate: Identifiable{
     }
 }
 
+
 struct ExerciseTemplate: Identifiable{
     var id: UUID = UUID()
     var name: String
@@ -55,6 +56,13 @@ struct ExerciseTemplate: Identifiable{
     static func create(from formData: FormData) -> ExerciseTemplate {
         ExerciseTemplate(id: formData.id, name: formData.name, muscle: formData.muscle)
     }
+    
+    static func update(_ exerciseTemp: ExerciseTemplate, from formData: FormData) -> ExerciseTemplate {
+        var exerciseTemp = exerciseTemp
+        exerciseTemp.name = formData.name
+        exerciseTemp.muscle = formData.muscle
+        return exerciseTemp
+    }
 }
 
 
@@ -70,6 +78,13 @@ struct Workout: Identifiable{
     
     mutating func addExercise(_ exercise: Exercise){
         self.exercises.append(exercise)
+    }
+}
+
+extension Workout{
+    static func startWorkoutFromTemplate(from template:WorkoutTemplate) -> Workout{
+        let workout = Workout(name: template.name, exercises: template.exercises.map { Exercise.init(template: $0, activities: [])})
+        return workout
     }
 }
 
@@ -128,14 +143,6 @@ struct Activity: Identifiable{
 }
 
 
-extension Workout{
-    static func startWorkoutFromTemplate(from template:WorkoutTemplate) -> Workout{
-        let workout = Workout(name: template.name, exercises: template.exercises.map { Exercise.init(template: $0, activities: [])})
-        return workout
-    }
-}
-
-//new workout (w/o temp) dont make an empty temp for that. Just create a Workout Struct
 
 extension WorkoutTemplate{
     static let previewData = [

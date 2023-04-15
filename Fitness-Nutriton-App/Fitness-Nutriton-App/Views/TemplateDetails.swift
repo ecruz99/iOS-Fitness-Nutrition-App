@@ -18,9 +18,14 @@ struct TemplateDetails: View {
     
     @State private var deleteConfirm = false
     
+    @State var presentingExerciseTemplateEdit: Bool = false
+    
+    @State var editExerciseTemplateFormData = ExerciseTemplate.FormData()
+    
+    
     var body: some View {
         ScrollView{
-            HStack{
+            
                 Text(template.name)
                     .font(.title)
                     .bold()
@@ -30,15 +35,41 @@ struct TemplateDetails: View {
                     editWorkoutTemplateFormData = template.dataForForm
                     presentingWorkoutTemplate.toggle()
                 }
-                .padding(.top, 45)
-                .padding(.leading)
-            }
+                
+            
             ForEach(template.exercises){exercise in
                 Text("\(exercise.name)  (\(exercise.muscle))")
                     .font(.title3)
                     .padding(.top)
                     .padding(.bottom, 1)
                     .fontWeight(.semibold)
+                
+                Button("Edit Exercise"){
+                    presentingExerciseTemplateEdit.toggle()
+                    editExerciseTemplateFormData = exercise.dataForForm
+                }
+                .padding(.bottom, 1)
+                .sheet(isPresented: $presentingExerciseTemplateEdit){
+                    NavigationStack{
+                        ExerciseTemplateForm(data: $editExerciseTemplateFormData)
+                            .toolbar{
+                                ToolbarItem(placement: .navigationBarLeading){
+                                    Button("Cancel"){
+                                        presentingExerciseTemplateEdit = false
+                                    }
+                                }
+                            }
+                            .toolbar{
+                                ToolbarItem(placement: .navigationBarTrailing){
+                                    Button("Save"){
+                                        let editedExercise = ExerciseTemplate.update(exercise, from: editExerciseTemplateFormData)
+                                        dataStore.updateExerciseTemplate(template, editedExercise)
+                                        presentingExerciseTemplateEdit.toggle()
+                                    }
+                                }
+                            }
+                    }
+                }
                 
                 Button("Delete Exercise"){
                     dataStore.deleteExerciseTemplate(template, exercise)
