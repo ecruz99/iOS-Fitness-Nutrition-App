@@ -17,7 +17,7 @@ struct WorkoutTemplates: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top, 20)
-            ForEach(dataStore.templates) { template in
+            ForEach(dataStore.templates.sorted(by: {$0.name<$1.name})) { template in
                 SingleTemplate(template: template)
                 
             }
