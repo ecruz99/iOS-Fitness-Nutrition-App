@@ -8,6 +8,9 @@ struct WorkoutTemplates: View {
     
     @State var newWorkoutTemplateFormData = WorkoutTemplate.FormData()
     
+    let newTemp = WorkoutTemplate(name: "New Template", exercises: [ExerciseTemplate(name: "First Exercise", muscle: "Muscle")])
+    
+    
     var body: some View {
         ScrollView{
             Text("My Templates")
@@ -17,6 +20,9 @@ struct WorkoutTemplates: View {
             ForEach(dataStore.templates) { template in
                 SingleTemplate(template: template)
                 
+            }
+            NavigationLink(destination: NewWorkoutTemplate(template: newTemp)){
+                Text("Add Temp Better Way But Not Working :(")
             }
         }
         .toolbar{
@@ -52,7 +58,9 @@ struct WorkoutTemplates: View {
 
 struct WorkoutTemplates_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutTemplates()
-            .environmentObject(DataStore())
+        NavigationStack{
+            WorkoutTemplates()
+                .environmentObject(DataStore())
+        }
     }
 }

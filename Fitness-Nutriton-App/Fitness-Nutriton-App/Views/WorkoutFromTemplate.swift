@@ -20,10 +20,13 @@ struct WorkoutFromTemplate: View {
     
     var body: some View {
         ScrollView{
-            Text(workout.name)
+            TextField("Name", text: $workout.name)
+                .padding(8)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.red)
+                .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.15)).shadow(radius: 3))
+                .fixedSize()
             Text(workout.startedAt.formatted(date: .abbreviated, time: .shortened))
                 .padding(.bottom)
             ForEach($workout.exercises){ $exercise in
@@ -39,8 +42,11 @@ struct WorkoutFromTemplate: View {
                                 Text("Weight:")
                                 TextField("???", value: bindingToWeight, formatter: NumberFormatter())
                                     .padding(2)
-                                    .border(.green)
+                                    .background(RoundedRectangle(cornerRadius: 0).fill(Color.gray.opacity(0.15)).shadow(radius: 3))
+                                    .border(.cyan)
                                     .fixedSize()
+                                    .keyboardType(.numberPad)
+                                    
                             }
                         }
                         Spacer()
@@ -48,8 +54,11 @@ struct WorkoutFromTemplate: View {
                             HStack{
                                 Text("Reps:")
                                 TextField("???", value: bindingToReps, formatter: NumberFormatter())
-                                    .border(.blue)
+                                    .padding(2)
+                                    .background(RoundedRectangle(cornerRadius: 0).fill(Color.gray.opacity(0.15)).shadow(radius: 3))
+                                    .border(.black)
                                     .fixedSize()
+                                    .keyboardType(.numberPad)
                             }
                         }
                         Spacer()

@@ -20,7 +20,7 @@
 		CC65C5FA29DA3B0B00B9707A /* SingleWorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5F929DA3B0B00B9707A /* SingleWorkoutHistory.swift */; };
 		CC65C5FC29DABB4F00B9707A /* SingleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */; };
 		CC65C5FE29DB877900B9707A /* WorkoutFromTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */; };
-		CCAA76A429E182FB00F45B8C /* BlankWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */; };
+		CC78795929EB703000975D56 /* NewWorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */; };
 		CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA76A529E187C000F45B8C /* ExerciseForm.swift */; };
 		CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFEB29D3A47D00F94F09 /* User.swift */; };
 		CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFED29D496CE00F94F09 /* Workout.swift */; };
@@ -50,7 +50,7 @@
 		CC65C5F929DA3B0B00B9707A /* SingleWorkoutHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWorkoutHistory.swift; sourceTree = "<group>"; };
 		CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTemplate.swift; sourceTree = "<group>"; };
 		CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutFromTemplate.swift; sourceTree = "<group>"; };
-		CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankWorkout.swift; sourceTree = "<group>"; };
+		CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutTemplate.swift; sourceTree = "<group>"; };
 		CCAA76A529E187C000F45B8C /* ExerciseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseForm.swift; sourceTree = "<group>"; };
 		CCB0FFEB29D3A47D00F94F09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CCB0FFED29D496CE00F94F09 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 		CCEA93F229D15E61006E4CF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */,
 				B68B359229DB8149009ADEB5 /* NutritionComponents */,
+				CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */,
 				CCF3361529D5494200AA0CA3 /* WorkoutTemplates.swift */,
 				CCF3361729D5568B00AA0CA3 /* TemplateDetails.swift */,
 				CC65C5F929DA3B0B00B9707A /* SingleWorkoutHistory.swift */,
@@ -163,7 +163,7 @@
 				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
 				B6F82F7E29D48E6200D16475 /* TabContainer.swift */,
 				B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */,
-				CCAA76A329E182FB00F45B8C /* BlankWorkout.swift */,
+				CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,13 +246,13 @@
 				CC65C5FC29DABB4F00B9707A /* SingleTemplate.swift in Sources */,
 				B6B4D74E29D6255000FFF7EF /* NewFoodForm.swift in Sources */,
 				B68B359429DB8165009ADEB5 /* MyTDECalculator.swift in Sources */,
-				CCAA76A429E182FB00F45B8C /* BlankWorkout.swift in Sources */,
 				B68B359829DB81EA009ADEB5 /* MyCaloricIntake.swift in Sources */,
 				B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */,
 				B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */,
 				CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */,
 				B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */,
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
+				CC78795929EB703000975D56 /* NewWorkoutTemplate.swift in Sources */,
 				B6B4D75029D8D17600FFF7EF /* FoodLog.swift in Sources */,
 				B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */,
 				CCF3361C29D9412A00AA0CA3 /* ExerciseTemplateForm.swift in Sources */,
