@@ -31,6 +31,17 @@ struct WorkoutTemplate: Identifiable{
         workoutTemp.name = formData.name
         return workoutTemp
     }
+    
+    //These two functions needed to add or delete exercises to a workout template that is not in the data store yet as we can't update something that isn't there
+    mutating func deleteExerciseTemplate (_ exerciseTemp: ExerciseTemplate){
+        if let index = self.exercises.firstIndex(where: {$0.id == exerciseTemp.id}){
+            self.exercises.remove(at: index)
+        }
+    }
+    
+    mutating func addExerciseTemplate (_ exerciseTemp: ExerciseTemplate){
+        self.exercises.append(exerciseTemp)
+    }
 }
 
 
@@ -79,6 +90,12 @@ struct Workout: Identifiable{
     mutating func addExercise(_ exercise: Exercise){
         self.exercises.append(exercise)
     }
+    
+    mutating func deleteExercise(_ exercise: Exercise){
+        if let index = self.exercises.firstIndex(where: {$0.id == exercise.id}){
+            self.exercises.remove(at: index)
+        }
+    }
 }
 
 extension Workout{
@@ -123,6 +140,13 @@ struct Exercise: Identifiable{
     
     static func create(from formData: FormData) -> Exercise {
         Exercise(id: formData.id, name: formData.name, muscle: formData.muscle, activities: formData.activities)
+    }
+    
+    static func update(_ exercise: Exercise, from formData: FormData) -> Exercise {
+        var exercise = exercise
+        exercise.name = formData.name
+        exercise.muscle = formData.muscle
+        return exercise
     }
 }
 

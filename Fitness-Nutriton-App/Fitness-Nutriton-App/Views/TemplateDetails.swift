@@ -85,7 +85,7 @@ struct TemplateDetails: View {
             .tint(.green)
             .padding(.bottom, 50)
             
-            NavigationLink(destination: WorkoutFromTemplate(workout: Workout.startWorkoutFromTemplate(from: template))){
+            NavigationLink(destination: CurrentWorkout(workout: Workout.startWorkoutFromTemplate(from: template))){
                 Text("Begin workout with this template")
                     .foregroundColor(.white)
                     .frame(width: 170, height: 50)

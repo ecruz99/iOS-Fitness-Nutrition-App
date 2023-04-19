@@ -43,7 +43,7 @@ struct NewWorkoutTemplate: View {
             .padding(.bottom, 20)
             
             
-            ForEach(template.exercises){exercise in
+            ForEach($template.exercises){$exercise in
                 Text("\(exercise.name)  (\(exercise.muscle))")
                     .font(.title3)
                     .padding(.top)
@@ -69,7 +69,7 @@ struct NewWorkoutTemplate: View {
                                 ToolbarItem(placement: .navigationBarTrailing){
                                     Button("Save"){
                                         let editedExercise = ExerciseTemplate.update(exercise, from: editExerciseTemplateFormData)
-                                        dataStore.updateExerciseTemplate(template, editedExercise)
+                                        exercise = editedExercise
                                         presentingExerciseTemplateEdit.toggle()
                                     }
                                 }
@@ -78,7 +78,7 @@ struct NewWorkoutTemplate: View {
                 }
                 
                 Button("Delete Exercise"){
-                    dataStore.deleteExerciseTemplate(template, exercise)
+                    template.deleteExerciseTemplate(exercise)
                 }
                 .tint(.red)
                 
@@ -119,7 +119,7 @@ struct NewWorkoutTemplate: View {
                         ToolbarItem(placement: .navigationBarTrailing){
                             Button("Save"){
                                 let newExerciseTemplate = ExerciseTemplate.create(from: newExerciseTemplateFormData)
-                                dataStore.addExerciseTemplate(template, newExerciseTemplate)
+                                template.addExerciseTemplate(newExerciseTemplate)
                                 presentingExerciseTemplate = false
                                 newExerciseTemplateFormData = ExerciseTemplate.FormData()
                             }
@@ -140,7 +140,7 @@ struct NewWorkoutTemplate: View {
                         ToolbarItem(placement: .navigationBarTrailing){
                             Button ("Save"){
                                 let editedWorkoutTemplate = WorkoutTemplate.update(template, from: editWorkoutTemplateFormData)
-                                dataStore.updateWorkoutTemplate(editedWorkoutTemplate)
+                                template = editedWorkoutTemplate
                                 presentingWorkoutTemplate.toggle()
                             }
                             
