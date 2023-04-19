@@ -42,6 +42,12 @@ struct WorkoutTemplate: Identifiable{
     mutating func addExerciseTemplate (_ exerciseTemp: ExerciseTemplate){
         self.exercises.append(exerciseTemp)
     }
+    
+    mutating func updateWorkoutTemplate(_ exerciseTemplate: ExerciseTemplate){
+        if let index = exercises.firstIndex(where: {$0.id == exerciseTemplate.id}){
+            exercises[index] = exerciseTemplate
+        }
+    }
 }
 
 
@@ -94,6 +100,12 @@ struct Workout: Identifiable{
     mutating func deleteExercise(_ exercise: Exercise){
         if let index = self.exercises.firstIndex(where: {$0.id == exercise.id}){
             self.exercises.remove(at: index)
+        }
+    }
+    
+    mutating func updateWorkout(_ exercise: Exercise){
+        if let index = exercises.firstIndex(where: {$0.id == exercise.id}){
+            exercises[index] = exercise
         }
     }
 }

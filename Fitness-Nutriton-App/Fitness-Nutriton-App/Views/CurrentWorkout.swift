@@ -22,6 +22,8 @@ struct CurrentWorkout: View {
     
     @State var editExerciseFormData = Exercise.FormData()
     
+    @State var editingExercise: Exercise?
+    
     var body: some View {
         ScrollView{
             TextField("Name", text: $workout.name)
@@ -40,6 +42,8 @@ struct CurrentWorkout: View {
                         .fontWeight(.semibold)
                     Menu{
                         Button("Replace"){
+                            editExerciseFormData = exercise.dataForForm
+                            editingExercise = exercise
                             changeExercise.toggle()
                         }
                         
@@ -52,25 +56,6 @@ struct CurrentWorkout: View {
                     
                 }
                 
-                .sheet(isPresented: $changeExercise){
-                    NavigationStack{
-                        ExerciseForm(data: $editExerciseFormData)
-                            .toolbar{
-                                ToolbarItem(placement: .navigationBarLeading){
-                                    Button("Cancel"){
-                                        changeExercise = false
-                                    }
-                                }
-                                ToolbarItem(placement: .navigationBarTrailing){
-                                    Button("Replace"){
-                                        let replacementExercise = Exercise.update(exercise, from: editExerciseFormData)
-                                        exercise = replacementExercise
-                                        changeExercise = false
-                                    }
-                                }
-                            }
-                    }
-                }
                 if exercise.activities.count>0{
                     
                     HStack{
@@ -97,8 +82,8 @@ struct CurrentWorkout: View {
                                 .stroke(Color.black, lineWidth: 1.1))
                         Spacer()
                         if let bindingToWeight = Binding($activity.weight) {
-                        
-                                TextField("???", value: bindingToWeight, formatter: NumberFormatter())
+                            
+                            TextField("???", value: bindingToWeight, formatter: NumberFormatter())
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(width: 60)
@@ -176,6 +161,27 @@ struct CurrentWorkout: View {
                     dataStore.addWorkout(workout)
                     dismiss()
                 }
+            }
+        }
+        .sheet(isPresented: $changeExercise){
+            NavigationStack{
+                ExerciseForm(data: $editExerciseFormData)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarLeading){
+                            Button("Cancel"){
+                                changeExercise = false
+                            }
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button("Replace"){
+                                if let editingExercise = editingExercise {
+                                   let replacementExercise = Exercise.update(editingExercise, from: editExerciseFormData)
+                                    workout.updateWorkout(replacementExercise)
+                                    changeExercise = false
+                                }
+                            }
+                        }
+                    }
             }
         }
         .sheet(isPresented: $presentingExercise){

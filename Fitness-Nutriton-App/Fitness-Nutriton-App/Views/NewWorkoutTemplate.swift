@@ -27,6 +27,8 @@ struct NewWorkoutTemplate: View {
     
     @State var editExerciseTemplateFormData = ExerciseTemplate.FormData()
     
+    @State var editingExerciseTemplate: ExerciseTemplate?
+    
     
     var body: some View {
         ScrollView{
@@ -52,30 +54,10 @@ struct NewWorkoutTemplate: View {
                 
                 Button("Edit Exercise"){
                     presentingExerciseTemplateEdit.toggle()
+                    editingExerciseTemplate = exercise
                     editExerciseTemplateFormData = exercise.dataForForm
                 }
                 .padding(.bottom, 1)
-                .sheet(isPresented: $presentingExerciseTemplateEdit){
-                    NavigationStack{
-                        ExerciseTemplateForm(data: $editExerciseTemplateFormData)
-                            .toolbar{
-                                ToolbarItem(placement: .navigationBarLeading){
-                                    Button("Cancel"){
-                                        presentingExerciseTemplateEdit = false
-                                    }
-                                }
-                            }
-                            .toolbar{
-                                ToolbarItem(placement: .navigationBarTrailing){
-                                    Button("Save"){
-                                        let editedExercise = ExerciseTemplate.update(exercise, from: editExerciseTemplateFormData)
-                                        exercise = editedExercise
-                                        presentingExerciseTemplateEdit.toggle()
-                                    }
-                                }
-                            }
-                    }
-                }
                 
                 Button("Delete Exercise"){
                     template.deleteExerciseTemplate(exercise)
@@ -127,6 +109,30 @@ struct NewWorkoutTemplate: View {
                     }
             }
         }
+        .sheet(isPresented: $presentingExerciseTemplateEdit){
+            NavigationStack{
+                ExerciseTemplateForm(data: $editExerciseTemplateFormData)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarLeading){
+                            Button("Cancel"){
+                                presentingExerciseTemplateEdit = false
+                            }
+                        }
+                    }
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button("Save"){
+                                if let editingExerciseTemplate = editingExerciseTemplate{
+                                    let editedExercise = ExerciseTemplate.update(editingExerciseTemplate, from: editExerciseTemplateFormData)
+                                    template.updateWorkoutTemplate(editedExercise)
+                                    presentingExerciseTemplateEdit.toggle()
+                                }
+                            }
+                        }
+                    }
+            }
+        }
+        
         .sheet(isPresented: $presentingWorkoutTemplate){
             NavigationStack{
                 WorkoutTemplateForm(data: $editWorkoutTemplateFormData)
