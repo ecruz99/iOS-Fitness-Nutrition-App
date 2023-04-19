@@ -21,14 +21,11 @@ struct WorkoutTemplates: View {
                 SingleTemplate(template: template)
                 
             }
-            NavigationLink(destination: NewWorkoutTemplate(template: newTemp)){
-                Text("Add Temp Better Way But Not Working :(")
-            }
         }
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing){
-                Button("Add New Template"){
-                    presentingWorkoutTemplate.toggle()
+                NavigationLink(destination: NewWorkoutTemplate(template: newTemp)){
+                    Text("New Template +")
                 }
             }
         }
