@@ -170,7 +170,7 @@ struct CurrentWorkout: View {
         }
         .sheet(isPresented: $changeExercise){
             NavigationStack{
-                ExerciseForm(data: $editExerciseFormData)
+                EditExercise(data: $editExerciseFormData)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
@@ -191,7 +191,7 @@ struct CurrentWorkout: View {
         }
         .sheet(isPresented: $presentingExercise){
             NavigationStack{
-                ExerciseForm(data: $newExerciseFormData)
+                AddExercise(data: $newExerciseFormData)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){

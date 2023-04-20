@@ -17,12 +17,6 @@ struct ExerciseForm: View {
             
             TextFieldWithLabel(label: "Muscle", text: $data.muscle, prompt: "Enter a muscle")
                 .padding(.leading)
-            Text("Search Bar Here (2 search bars? one by exercise name, one by muscle group)")
-                .padding()
-            Text("API Results Here")
-                .padding()
-            Text("Clicking 'add' will autofill exercise name and muscle with that api results info")
-                .padding()
 
         }
     }

@@ -21,6 +21,8 @@
 		CC65C5FC29DABB4F00B9707A /* SingleTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */; };
 		CC65C5FE29DB877900B9707A /* CurrentWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65C5FD29DB877900B9707A /* CurrentWorkout.swift */; };
 		CC78795929EB703000975D56 /* NewWorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */; };
+		CC9163EB29F0FAAD008D38B5 /* AddExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9163EA29F0FAAD008D38B5 /* AddExercise.swift */; };
+		CC9163ED29F0FABB008D38B5 /* EditExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9163EC29F0FABB008D38B5 /* EditExercise.swift */; };
 		CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA76A529E187C000F45B8C /* ExerciseForm.swift */; };
 		CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFEB29D3A47D00F94F09 /* User.swift */; };
 		CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0FFED29D496CE00F94F09 /* Workout.swift */; };
@@ -51,6 +53,8 @@
 		CC65C5FB29DABB4F00B9707A /* SingleTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTemplate.swift; sourceTree = "<group>"; };
 		CC65C5FD29DB877900B9707A /* CurrentWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWorkout.swift; sourceTree = "<group>"; };
 		CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutTemplate.swift; sourceTree = "<group>"; };
+		CC9163EA29F0FAAD008D38B5 /* AddExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExercise.swift; sourceTree = "<group>"; };
+		CC9163EC29F0FABB008D38B5 /* EditExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditExercise.swift; sourceTree = "<group>"; };
 		CCAA76A529E187C000F45B8C /* ExerciseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseForm.swift; sourceTree = "<group>"; };
 		CCB0FFEB29D3A47D00F94F09 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CCB0FFED29D496CE00F94F09 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				B6F82F7E29D48E6200D16475 /* TabContainer.swift */,
 				B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */,
 				CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */,
+				CC9163EA29F0FAAD008D38B5 /* AddExercise.swift */,
+				CC9163EC29F0FABB008D38B5 /* EditExercise.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,8 +261,10 @@
 				CC78795929EB703000975D56 /* NewWorkoutTemplate.swift in Sources */,
 				B6B4D75029D8D17600FFF7EF /* FoodLog.swift in Sources */,
 				B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */,
+				CC9163ED29F0FABB008D38B5 /* EditExercise.swift in Sources */,
 				CCF3361C29D9412A00AA0CA3 /* ExerciseTemplateForm.swift in Sources */,
 				CCF3361E29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift in Sources */,
+				CC9163EB29F0FAAD008D38B5 /* AddExercise.swift in Sources */,
 				CC65C5FE29DB877900B9707A /* CurrentWorkout.swift in Sources */,
 				CCF3361629D5494200AA0CA3 /* WorkoutTemplates.swift in Sources */,
 				CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */,
