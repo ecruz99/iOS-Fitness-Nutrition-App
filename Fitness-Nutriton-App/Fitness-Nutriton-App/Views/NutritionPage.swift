@@ -6,7 +6,7 @@ struct NutritionPage: View {
     @Binding var user: User
     let frameW: Double = UIScreen.main.bounds.width * 0.9
     let frameH: Double = UIScreen.main.bounds.height * 0.9
-    @State var isPresentingNewFoodForm: Bool = false
+    @State var isPresentingAddFoodForm: Bool = false
     @State var newFoodData = Food.FormData()
     
     
@@ -16,21 +16,13 @@ struct NutritionPage: View {
             MyTDECalculator(user: user).padding()
             Spacer(minLength: 20)
             MyFoodLog(foodLog: $dataStore.foodLog)
-            .sheet(isPresented: $isPresentingNewFoodForm) {
+            .sheet(isPresented: $isPresentingAddFoodForm) {
                 NavigationStack {
-                    NewFoodForm(data: $newFoodData)
+                    AddFoodPage(data: $newFoodData)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
-                                Button("Cancel") {
-                                    isPresentingNewFoodForm.toggle()
-                                    newFoodData = Food.FormData()
-                                }
-                            }
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button("Save") {
-                                    let newFood = Food.create(from: newFoodData)
-                                    dataStore.updateFoodLog(food: newFood)
-                                    isPresentingNewFoodForm = false
+                                Button("Back") {
+                                    isPresentingAddFoodForm.toggle()
                                     newFoodData = Food.FormData()
                                 }
                             }
@@ -39,7 +31,7 @@ struct NutritionPage: View {
             }
             Spacer(minLength: 20)
             Button("Add Food") {
-                isPresentingNewFoodForm.toggle()
+                isPresentingAddFoodForm.toggle()
             }.buttonStyle(.borderedProminent).padding()
             Spacer(minLength: 20)
             MyCaloricIntake(
