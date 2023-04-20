@@ -84,39 +84,39 @@ struct CurrentWorkout: View {
                             .background(RoundedRectangle(cornerRadius: 5)
                                 .stroke(Color.black, lineWidth: 1.1))
                         Spacer()
-                        if let bindingToWeight = Binding($activity.weight) {
-                            
-                            TextField("???", value: bindingToWeight, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .multilineTextAlignment(.center)
-                                .frame(width: 60)
-                                .accentColor(.black)
-                                .focused($focusWeight)
-                                .background(RoundedRectangle(cornerRadius: 5)
-                                    .stroke(lineWidth: focusWeight ? 4:2)
-                                    .fill(.blue))
-                                .keyboardType(.numberPad)
-                                    
-                            
-                        }
+                        
+                        
+                        TextField("???", value: $activity.weight, formatter: NumberFormatter())
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.center)
+                            .frame(width: 60)
+                            .accentColor(.black)
+                            .focused($focusWeight)
+                            .background(RoundedRectangle(cornerRadius: 5)
+                                .stroke(lineWidth: focusWeight ? 4:2)
+                                .fill(.blue))
+                            .keyboardType(.numberPad)
+                        
+                        
+                        
                         Spacer()
-                        if let bindingToReps = Binding($activity.reps) {
-                            
-                            TextField("???", value: bindingToReps, formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .multilineTextAlignment(.center)
-                                .frame(width: 50)
-                                .accentColor(.black)
-                                .focused($focusReps)
-                                .background(RoundedRectangle(cornerRadius: 5)
-                                    .stroke(lineWidth: focusReps ? 4:2)
-                                    .fill(.yellow))
-                                .keyboardType(.numberPad)
-                                
-                                
-                                
-                            
-                        }
+                        
+                        
+                        TextField("???", value: $activity.reps, formatter: NumberFormatter())
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .multilineTextAlignment(.center)
+                            .frame(width: 50)
+                            .accentColor(.black)
+                            .focused($focusReps)
+                            .background(RoundedRectangle(cornerRadius: 5)
+                                .stroke(lineWidth: focusReps ? 4:2)
+                                .fill(.yellow))
+                            .keyboardType(.numberPad)
+                        
+                        
+                        
+                        
+                        
                         Spacer()
                         
                         Button(action:{activity.completed.toggle()}){
