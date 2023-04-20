@@ -24,6 +24,9 @@ struct CurrentWorkout: View {
     
     @State var editingExercise: Exercise?
     
+    @FocusState private var focusWeight: Bool
+    @FocusState private var focusReps: Bool
+    
     var body: some View {
         ScrollView{
             TextField("Name", text: $workout.name)
@@ -51,7 +54,7 @@ struct CurrentWorkout: View {
                             workout.deleteExercise(exercise)
                         }
                     } label: {
-                        Image(systemName: "ellipsis")
+                        Image(systemName: "rectangle.and.pencil.and.ellipsis")
                     }
                     
                 }
@@ -64,10 +67,10 @@ struct CurrentWorkout: View {
                             .padding(.leading, 13)
                         Text("Weight:")
                             .font(.title3)
-                            .padding(.leading, 32)
+                            .padding(.leading, 42)
                         Text("Reps:")
                             .font(.title3)
-                            .padding(.leading, 35)
+                            .padding(.leading, 44)
                         Spacer()
                     }
                     
@@ -87,10 +90,11 @@ struct CurrentWorkout: View {
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .multilineTextAlignment(.center)
                                 .frame(width: 60)
-                                .accentColor(.green)
+                                .accentColor(.black)
+                                .focused($focusWeight)
                                 .background(RoundedRectangle(cornerRadius: 5)
-                                    .stroke(lineWidth: 2)
-                                    .fill(.black))
+                                    .stroke(lineWidth: focusWeight ? 4:2)
+                                    .fill(.blue))
                                 .keyboardType(.numberPad)
                                     
                             
@@ -101,11 +105,12 @@ struct CurrentWorkout: View {
                             TextField("???", value: bindingToReps, formatter: NumberFormatter())
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .multilineTextAlignment(.center)
-                                .fixedSize()
-                                .accentColor(.green)
+                                .frame(width: 50)
+                                .accentColor(.black)
+                                .focused($focusReps)
                                 .background(RoundedRectangle(cornerRadius: 5)
-                                    .stroke(lineWidth: 2)
-                                    .fill(.black))
+                                    .stroke(lineWidth: focusReps ? 4:2)
+                                    .fill(.yellow))
                                 .keyboardType(.numberPad)
                                 
                                 

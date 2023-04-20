@@ -32,9 +32,9 @@ struct SingleWorkoutHistory: View {
                         HStack{
                             Text("Set:")
                             Text("Weight:")
-                                .padding(.leading, 50)
+                                .padding(.leading, 61)
                             Text("Reps:")
-                                .padding(.leading, 50)
+                                .padding(.leading, 58)
                         }
                         .padding(.bottom, 1)
                         
@@ -49,7 +49,7 @@ struct SingleWorkoutHistory: View {
                                 
                                 Text("\(activity.weight)")
                                     .padding(5)
-                                    .frame(width: 40)
+                                    .frame(width: 60)
                                     .background(RoundedRectangle(cornerRadius: 5)
                                         .stroke(Color.black, lineWidth: 1.1))
                                     .padding(.leading, 60)
