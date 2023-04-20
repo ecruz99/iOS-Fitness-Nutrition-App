@@ -1,8 +1,15 @@
+//
+//  NewWorkoutTemplate.swift
+//  Fitness-Nutriton-App
+//
+//  Created by Erik Cruz on 4/15/23.
+//
 
 import SwiftUI
 
-struct TemplateDetails: View {
-    let template: WorkoutTemplate
+struct NewWorkoutTemplate: View {
+    
+    @State var template: WorkoutTemplate
     
     @EnvironmentObject var dataStore: DataStore
     
@@ -16,29 +23,29 @@ struct TemplateDetails: View {
     
     @State var editWorkoutTemplateFormData = WorkoutTemplate.FormData()
     
-    @State private var deleteConfirm = false
-    
     @State var presentingExerciseTemplateEdit: Bool = false
     
     @State var editExerciseTemplateFormData = ExerciseTemplate.FormData()
     
     @State var editingExerciseTemplate: ExerciseTemplate?
     
+    
     var body: some View {
         ScrollView{
             
-                Text(template.name)
-                    .font(.title)
-                    .bold()
-                    .padding(.top, 40)
-                
-                Button("Edit name"){
-                    editWorkoutTemplateFormData = template.dataForForm
-                    presentingWorkoutTemplate.toggle()
-                }
-                
+            Text(template.name)
+                .font(.title)
+                .bold()
+                .padding(.top, 40)
             
-            ForEach(template.exercises){exercise in
+            Button("Edit name"){
+                editWorkoutTemplateFormData = template.dataForForm
+                presentingWorkoutTemplate.toggle()
+            }
+            .padding(.bottom, 20)
+            
+            
+            ForEach($template.exercises){$exercise in
                 Text("\(exercise.name)  (\(exercise.muscle))")
                     .font(.title3)
                     .padding(.top)
@@ -53,7 +60,7 @@ struct TemplateDetails: View {
                 .padding(.bottom, 1)
                 
                 Button("Delete Exercise"){
-                    dataStore.deleteExerciseTemplate(template, exercise)
+                    template.deleteExerciseTemplate(exercise)
                 }
                 .tint(.red)
                 
@@ -66,24 +73,20 @@ struct TemplateDetails: View {
             .tint(.green)
             .padding(.bottom, 50)
             
-            NavigationLink(destination: CurrentWorkout(workout: Workout.startWorkoutFromTemplate(from: template))){
-                Text("Begin workout with this template")
-                    .foregroundColor(.white)
-                    .frame(width: 170, height: 50)
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue).shadow(radius: 3))
-                    .padding(.bottom, 50)
-                    .multilineTextAlignment(.center)
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar{
+            ToolbarItem(placement: .navigationBarLeading){
+                Button("Cancel"){
+                    dismiss()
+                }
             }
-            
-            
-            
-            Button("Delete Template"){
-                deleteConfirm = true
+            ToolbarItem(placement: .navigationBarTrailing){
+                Button("Save Template"){
+                    dataStore.addWorkoutTemplate(template)
+                    dismiss()
+                }
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.red)
-            
-            Spacer()
         }
         .sheet(isPresented: $presentingExerciseTemplate){
             NavigationStack{
@@ -98,7 +101,7 @@ struct TemplateDetails: View {
                         ToolbarItem(placement: .navigationBarTrailing){
                             Button("Save"){
                                 let newExerciseTemplate = ExerciseTemplate.create(from: newExerciseTemplateFormData)
-                                dataStore.addExerciseTemplate(template, newExerciseTemplate)
+                                template.addExerciseTemplate(newExerciseTemplate)
                                 presentingExerciseTemplate = false
                                 newExerciseTemplateFormData = ExerciseTemplate.FormData()
                             }
@@ -121,7 +124,7 @@ struct TemplateDetails: View {
                             Button("Save"){
                                 if let editingExerciseTemplate = editingExerciseTemplate{
                                     let editedExercise = ExerciseTemplate.update(editingExerciseTemplate, from: editExerciseTemplateFormData)
-                                    dataStore.updateExerciseTemplate(template, editedExercise)
+                                    template.updateWorkoutTemplate(editedExercise)
                                     presentingExerciseTemplateEdit.toggle()
                                 }
                             }
@@ -129,6 +132,7 @@ struct TemplateDetails: View {
                     }
             }
         }
+        
         .sheet(isPresented: $presentingWorkoutTemplate){
             NavigationStack{
                 WorkoutTemplateForm(data: $editWorkoutTemplateFormData)
@@ -139,30 +143,24 @@ struct TemplateDetails: View {
                                 presentingWorkoutTemplate = false
                             }
                         }
-                        ToolbarItem(placement: .navigationBarTrailing){Button ("Save"){
-                            let editedWorkoutTemplate = WorkoutTemplate.update(template, from: editWorkoutTemplateFormData)
-                            dataStore.updateWorkoutTemplate(editedWorkoutTemplate)
-                            presentingWorkoutTemplate.toggle()
-                        }
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button ("Save"){
+                                let editedWorkoutTemplate = WorkoutTemplate.update(template, from: editWorkoutTemplateFormData)
+                                template = editedWorkoutTemplate
+                                presentingWorkoutTemplate.toggle()
+                            }
                             
                         }
                     }
             }
         }
-        .confirmationDialog("Do you want to delete this template?", isPresented: $deleteConfirm, titleVisibility: .visible){
-            Button("Delete", role: .destructive){
-                dataStore.deleteTemplate(template)
-                dismiss()
-            }
-        }
     }
 }
 
-struct TemplateDetails_Previews: PreviewProvider {
+struct NewWorkoutTemplate_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            TemplateDetails(template: WorkoutTemplate.previewData[0])
-                .environmentObject(DataStore())
+        NavigationStack{
+            NewWorkoutTemplate(template: WorkoutTemplate(name: "Fake Template", exercises: [ExerciseTemplate(name: "Fake Exercise", muscle: "Fake Muscle")]))
         }
     }
 }

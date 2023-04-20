@@ -31,7 +31,25 @@ struct WorkoutTemplate: Identifiable{
         workoutTemp.name = formData.name
         return workoutTemp
     }
+    
+    //These two functions needed to add or delete exercises to a workout template that is not in the data store yet as we can't update something that isn't there
+    mutating func deleteExerciseTemplate (_ exerciseTemp: ExerciseTemplate){
+        if let index = self.exercises.firstIndex(where: {$0.id == exerciseTemp.id}){
+            self.exercises.remove(at: index)
+        }
+    }
+    
+    mutating func addExerciseTemplate (_ exerciseTemp: ExerciseTemplate){
+        self.exercises.append(exerciseTemp)
+    }
+    
+    mutating func updateWorkoutTemplate(_ exerciseTemplate: ExerciseTemplate){
+        if let index = exercises.firstIndex(where: {$0.id == exerciseTemplate.id}){
+            exercises[index] = exerciseTemplate
+        }
+    }
 }
+
 
 struct ExerciseTemplate: Identifiable{
     var id: UUID = UUID()
@@ -55,6 +73,13 @@ struct ExerciseTemplate: Identifiable{
     static func create(from formData: FormData) -> ExerciseTemplate {
         ExerciseTemplate(id: formData.id, name: formData.name, muscle: formData.muscle)
     }
+    
+    static func update(_ exerciseTemp: ExerciseTemplate, from formData: FormData) -> ExerciseTemplate {
+        var exerciseTemp = exerciseTemp
+        exerciseTemp.name = formData.name
+        exerciseTemp.muscle = formData.muscle
+        return exerciseTemp
+    }
 }
 
 
@@ -67,6 +92,29 @@ struct Workout: Identifiable{
     static func reverseSort(_ workouts: [Workout]) -> [Workout]{
         return Array(workouts.sorted(by: {$0.startedAt > $1.startedAt}))
     }
+    
+    mutating func addExercise(_ exercise: Exercise){
+        self.exercises.append(exercise)
+    }
+    
+    mutating func deleteExercise(_ exercise: Exercise){
+        if let index = self.exercises.firstIndex(where: {$0.id == exercise.id}){
+            self.exercises.remove(at: index)
+        }
+    }
+    
+    mutating func updateWorkout(_ exercise: Exercise){
+        if let index = exercises.firstIndex(where: {$0.id == exercise.id}){
+            exercises[index] = exercise
+        }
+    }
+}
+
+extension Workout{
+    static func startWorkoutFromTemplate(from template:WorkoutTemplate) -> Workout{
+        let workout = Workout(name: template.name, exercises: template.exercises.map { Exercise.init(template: $0, activities: [])})
+        return workout
+    }
 }
 
 struct Exercise: Identifiable{
@@ -75,23 +123,50 @@ struct Exercise: Identifiable{
     var muscle: String
     var activities: [Activity] = []
     
-    init(name: String, muscle: String, activities:[Activity]){
-        self.name = name
-        self.muscle = muscle
-        self.activities = activities
+    
+    mutating func addActivity(){
+        self.activities.append(Activity(weight: 0, reps: 0))
     }
     
+    mutating func deleteActivity(_ activity: Activity){
+        if let index = self.activities.firstIndex(where: {$0.id == activity.id}){
+            self.activities.remove(at: index)
+        }
+    }
+    
+    struct FormData {
+        var id: UUID = UUID()
+        var name: String = ""
+        var muscle: String = ""
+        var activities: [Activity] = []
+    }
+    
+    var dataForForm: FormData {
+        FormData(
+            id: id,
+            name: name,
+            muscle: muscle,
+            activities: activities
+        )
+    }
+    
+    static func create(from formData: FormData) -> Exercise {
+        Exercise(id: formData.id, name: formData.name, muscle: formData.muscle, activities: formData.activities)
+    }
+    
+    static func update(_ exercise: Exercise, from formData: FormData) -> Exercise {
+        var exercise = exercise
+        exercise.name = formData.name
+        exercise.muscle = formData.muscle
+        return exercise
+    }
+}
+
+extension Exercise {
     init(template: ExerciseTemplate, activities: [Activity]) {
         self.name = template.name
         self.muscle = template.muscle
         self.activities = activities
-    }
-    
-    //Is this the right way to approach it????
-    func addActivity(_ exercise: Exercise) -> Exercise {
-        var exercise = exercise
-        exercise.activities.append(Activity(weight: 0, reps: 0))
-        return exercise
     }
 }
 
@@ -104,14 +179,6 @@ struct Activity: Identifiable{
 }
 
 
-extension Workout{
-    static func startWorkoutFromTemplate(from template:WorkoutTemplate) -> Workout{
-        let workout = Workout(name: template.name, exercises: template.exercises.map { Exercise.init(template: $0, activities: [])})
-        return workout
-    }
-}
-
-//new workout (w/o temp) dont make an empty temp for that. Just create a Workout Struct
 
 extension WorkoutTemplate{
     static let previewData = [
