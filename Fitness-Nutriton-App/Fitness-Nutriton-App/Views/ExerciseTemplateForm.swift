@@ -14,9 +14,11 @@ struct ExerciseTemplateForm: View {
         
         ScrollView{
             TextFieldWithLabel(label: "Name", text: $data.name, prompt: "Enter the name")
+                .keyboardType(.default)
                 .padding(.leading)
             
             TextFieldWithLabel(label: "Muscle", text: $data.muscle, prompt: "Enter a muscle")
+                .keyboardType(.default)
                 .padding(.leading)
         }
         
@@ -30,12 +32,17 @@ struct ExerciseTemplateForm: View {
         
         var body: some View {
             VStack(alignment: .leading) {
-                Text(label)
+                Text("\(label) :")
                     .bold()
-                    .font(.caption)
+                    .font(.title3)
+                    .padding(.bottom, 1)
                 TextField(label, text: $text, prompt: prompt != nil ? Text(prompt!) : nil)
-                    .padding(.bottom, 20)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .background(RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color.black, lineWidth: 3))
             }
+            .padding(.bottom, 40)
+            .padding(.trailing, 2)
         }
     }
     

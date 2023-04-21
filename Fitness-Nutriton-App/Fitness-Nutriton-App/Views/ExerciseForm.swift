@@ -14,9 +14,11 @@ struct ExerciseForm: View {
         ScrollView{
             TextFieldWithLabel(label: "Name", text: $data.name, prompt: "Enter the name")
                 .padding(.leading)
+                .keyboardType(.default)
             
             TextFieldWithLabel(label: "Muscle", text: $data.muscle, prompt: "Enter a muscle")
                 .padding(.leading)
+                .keyboardType(.default)
 
         }
     }

@@ -1,5 +1,5 @@
 //
-//  AddExercise.swift
+//  EditExerciseTemplate.swift
 //  Fitness-Nutriton-App
 //
 //  Created by Erik Cruz on 4/20/23.
@@ -7,34 +7,34 @@
 
 import SwiftUI
 
-struct AddExercise: View {
+struct EditExerciseTemplate: View {
     @EnvironmentObject var dataStore: DataStore
-    @Binding var data: Exercise.FormData
-    @State var apiExercise: Bool = false
+    @Binding var data: ExerciseTemplate.FormData
+    @State var apiExerciseTemplate: Bool = false
     @State var searchTerm: String = ""
     var body: some View {
         ScrollView {
             Spacer(minLength: 40)
-            Text("Add Exercise").font(.title).bold().padding()
+            Text("Change Exercise").font(.title).bold().padding()
             HStack {
-                Button("Create Exercise") {
-                    apiExercise = false
-                }.buttonStyle(.bordered).tint(apiExercise ? .gray : .blue)
+                Button("Change Exercise") {
+                    apiExerciseTemplate = false
+                }.buttonStyle(.bordered).tint(apiExerciseTemplate ? .gray : .blue)
                 Button("Choose From List") {
-                    apiExercise = true
-                }.buttonStyle(.bordered).tint(apiExercise ? .blue : .gray)
+                    apiExerciseTemplate = true
+                }.buttonStyle(.bordered).tint(apiExerciseTemplate ? .blue : .gray)
             }.padding(.bottom, 20)
-            if (apiExercise) {
+            if (apiExerciseTemplate) {
                 Text("API results here. All exercises displayed alphabetically, with a search bar at top to search by either name or muscle that filters the list. Clicking on exercise prompts user to 'add', user confirms")
             } else {
-                ExerciseForm(data: $data)
+                ExerciseTemplateForm(data: $data)
                     .padding(.top, 50)
             }
         }.frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.9)    }
 }
 
-struct AddExercise_Previews: PreviewProvider {
+struct EditExerciseTemplate_Previews: PreviewProvider {
     static var previews: some View {
-        AddExercise(data: Binding.constant(Exercise.FormData())).environmentObject(DataStore())
+        EditExerciseTemplate(data: Binding.constant(ExerciseTemplate.FormData())).environmentObject(DataStore())
     }
 }

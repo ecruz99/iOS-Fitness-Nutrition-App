@@ -28,6 +28,7 @@ struct EditExercise: View {
                 Text("API results here. All exercises displayed alphabetically, with a search bar at top to search by either name or muscle that filters the list. Clicking on exercise prompts user to 'add', user confirms")
             } else {
                 ExerciseForm(data: $data)
+                    .padding(.top, 50)
             }
         }.frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.9)    }
 }

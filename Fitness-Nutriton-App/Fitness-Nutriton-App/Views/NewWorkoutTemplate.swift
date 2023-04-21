@@ -90,7 +90,7 @@ struct NewWorkoutTemplate: View {
         }
         .sheet(isPresented: $presentingExerciseTemplate){
             NavigationStack{
-                ExerciseTemplateForm(data: $newExerciseTemplateFormData)
+                AddExerciseTemplate(data: $newExerciseTemplateFormData)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
@@ -111,7 +111,7 @@ struct NewWorkoutTemplate: View {
         }
         .sheet(isPresented: $presentingExerciseTemplateEdit){
             NavigationStack{
-                ExerciseTemplateForm(data: $editExerciseTemplateFormData)
+                EditExerciseTemplate(data: $editExerciseTemplateFormData)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
