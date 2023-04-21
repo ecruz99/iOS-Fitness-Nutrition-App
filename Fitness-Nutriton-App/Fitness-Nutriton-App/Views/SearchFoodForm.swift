@@ -5,32 +5,57 @@ struct SearchFoodForm: View {
     @EnvironmentObject var dataStore: DataStore
     @Binding var searchTerm: String
     @State var displaySearch: Bool = false
+    @EnvironmentObject var foodLoader: FoodLoader
     
     var body: some View {
         ScrollView {
-            HStack {
-                TextField("Search", text: $searchTerm).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
-                Button("Search") {
-                    Task {
-                        if !searchTerm.isEmpty {
-                            dataStore.filterFoodTemplates(searchTerm: searchTerm)
-                            displaySearch = true;
-                        } else {
-                            print("Empty search")
+            VStack {
+                HStack {
+                    TextField("Search", text: $searchTerm).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
+                    Button("Search") {
+                        Task {
+                            await foodLoader.loadFood(food: searchTerm)
+                            
                         }
+                    }
+                    
+//                    Button("Search") {
+//                        Task {
+//                            if !searchTerm.isEmpty {
+//                                dataStore.filterFoodTemplates(searchTerm: searchTerm)
+//                                displaySearch = true;
+//                            } else {
+//                                print("Empty search")
+//                            }
+//                        }
+//                    }
+                    
+                    Spacer(minLength: 30)
+                    //Text("Search Results").font(.title2).frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    
+                    
+                    if (displaySearch) {
+                        MyFoodsSearchResults(
+                            myFoodTemplates: dataStore.foodTemplates,
+                            searchTerm: searchTerm)
+                    }
+                }.frame(width: UIScreen.main.bounds.width * 0.9)
+                
+                switch foodLoader.state {
+                case .idle: Color.clear
+                case .loading: ProgressView()
+                case .failed(let error): Text(error.localizedDescription)
+                case .success(let apiResponse):
+                    HStack {
+                        Text(apiResponse.parsed.first?.food.label ?? "Failure")
+                        Text(" : ")
+                        Text(String(apiResponse.parsed.first?.food.nutrients.ENERC_KCAL ?? 0.0))
                     }
                 }
             }
-            Spacer(minLength: 30)
-            //Text("Search Results").font(.title2).frame(maxWidth: .infinity, alignment: .leading)
-            if (displaySearch) {
-                MyFoodsSearchResults(
-                    myFoodTemplates: dataStore.foodTemplates,
-                    searchTerm: searchTerm)
-            }
-        }.frame(width: UIScreen.main.bounds.width * 0.9)
+        }
     }
-    
     struct MyFoodsSearchResults: View {
         @EnvironmentObject var dataStore: DataStore
         var myFoodTemplates: [Food]
@@ -46,7 +71,7 @@ struct SearchFoodForm: View {
                             originalServingSize: food.servingSize)) {
                                 FoodDetail(food: food)
                                     .frame(alignment: .leading).padding(.bottom, 8)
-                    }
+                            }
                 }
             }.padding(10)
         }
@@ -58,7 +83,7 @@ struct NewFoodFromExisting: View {
     @Binding var data: Food.FormData
     @State var newServingSize: String = "0"
     @State var hasBeenAdded: Bool = false
-
+    
     let food: Food
     let originalServingSize: Int
     
@@ -134,7 +159,7 @@ func newAmount(quant: Int, num: Double, denom: Double) -> String {
 
 struct SearchFoodForm_Previews: PreviewProvider {
     static var previews: some View {
-        SearchFoodForm(searchTerm: Binding.constant("Orange")).environmentObject(DataStore())
+        SearchFoodForm(searchTerm: Binding.constant("Orange")).environmentObject(DataStore()).environmentObject(FoodLoader(apiClient: FoodAPIService()))
     }
 }
 

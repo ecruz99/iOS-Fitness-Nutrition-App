@@ -1,6 +1,27 @@
 import Foundation
 import SwiftUI
 
+struct FoodResponse: Decodable{
+    var parsed: [FoodResponse2]
+}
+
+struct FoodResponse2: Decodable{
+    var food: FoodResponse3
+}
+
+struct FoodResponse3: Decodable{
+    var label: String
+    var nutrients: Nutrients
+}
+
+struct Nutrients: Decodable{
+    var ENERC_KCAL: Double
+    var PROCNT: Double
+    var FAT: Double
+    var CHOCDF: Double
+    var FIBTG: Double
+}
+
 struct Food: Identifiable {
     var id: UUID = UUID()
     var name: String

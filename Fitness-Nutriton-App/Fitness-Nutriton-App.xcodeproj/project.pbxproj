@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207093A829F20D470053B06A /* ExerciseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093A729F20D470053B06A /* ExerciseAPIService.swift */; };
+		207093AA29F20D760053B06A /* ExerciseAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093A929F20D760053B06A /* ExerciseAPIEndpoint.swift */; };
+		207093AD29F20D990053B06A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093AC29F20D990053B06A /* APIClient.swift */; };
+		207093AF29F20DA00053B06A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093AE29F20DA00053B06A /* APIError.swift */; };
+		207093B129F216FC0053B06A /* ExerciseLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B029F216FB0053B06A /* ExerciseLoader.swift */; };
+		207093B329F222AE0053B06A /* FoodAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B229F222AE0053B06A /* FoodAPIService.swift */; };
+		207093B529F222C10053B06A /* FoodAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B429F222C10053B06A /* FoodAPIEndpoint.swift */; };
+		207093B729F222CB0053B06A /* FoodLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B629F222CB0053B06A /* FoodLoader.swift */; };
 		B68B359429DB8165009ADEB5 /* MyTDECalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359329DB8165009ADEB5 /* MyTDECalculator.swift */; };
 		B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359529DB81A0009ADEB5 /* MyFoodLog.swift */; };
 		B68B359829DB81EA009ADEB5 /* MyCaloricIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359729DB81EA009ADEB5 /* MyCaloricIntake.swift */; };
@@ -45,6 +53,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		207093A729F20D470053B06A /* ExerciseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAPIService.swift; sourceTree = "<group>"; };
+		207093A929F20D760053B06A /* ExerciseAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAPIEndpoint.swift; sourceTree = "<group>"; };
+		207093AC29F20D990053B06A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		207093AE29F20DA00053B06A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		207093B029F216FB0053B06A /* ExerciseLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLoader.swift; sourceTree = "<group>"; };
+		207093B229F222AE0053B06A /* FoodAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAPIService.swift; sourceTree = "<group>"; };
+		207093B429F222C10053B06A /* FoodAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAPIEndpoint.swift; sourceTree = "<group>"; };
+		207093B629F222CB0053B06A /* FoodLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLoader.swift; sourceTree = "<group>"; };
+		207093B829F22FE20053B06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		207093B929F2301B0053B06A /* Fitness-Nutriton-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fitness-Nutriton-App.entitlements"; sourceTree = "<group>"; };
 		B68B359329DB8165009ADEB5 /* MyTDECalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTDECalculator.swift; sourceTree = "<group>"; };
 		B68B359529DB81A0009ADEB5 /* MyFoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFoodLog.swift; sourceTree = "<group>"; };
 		B68B359729DB81EA009ADEB5 /* MyCaloricIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCaloricIntake.swift; sourceTree = "<group>"; };
@@ -94,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		207093AB29F20D8C0053B06A /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				207093AC29F20D990053B06A /* APIClient.swift */,
+				207093AE29F20DA00053B06A /* APIError.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
 		B68B359229DB8149009ADEB5 /* NutritionComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +134,14 @@
 		B6F82F8229D48F9B00D16475 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				207093AB29F20D8C0053B06A /* APIClient */,
 				B6F82F8329D48FA900D16475 /* DataStore.swift */,
+				207093A729F20D470053B06A /* ExerciseAPIService.swift */,
+				207093A929F20D760053B06A /* ExerciseAPIEndpoint.swift */,
+				207093B029F216FB0053B06A /* ExerciseLoader.swift */,
+				207093B229F222AE0053B06A /* FoodAPIService.swift */,
+				207093B429F222C10053B06A /* FoodAPIEndpoint.swift */,
+				207093B629F222CB0053B06A /* FoodLoader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -142,6 +176,8 @@
 		CCEA93E329D15D76006E4CF6 /* Fitness-Nutriton-App */ = {
 			isa = PBXGroup;
 			children = (
+				207093B929F2301B0053B06A /* Fitness-Nutriton-App.entitlements */,
+				207093B829F22FE20053B06A /* Info.plist */,
 				B6F82F8229D48F9B00D16475 /* API */,
 				CCB0FFEA29D3A46C00F94F09 /* Models */,
 				CCEA93F229D15E61006E4CF6 /* Views */,
@@ -175,7 +211,6 @@
 				CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */,
 				B6D9F50729DDD91B00E71621 /* EditFoodForm.swift */,
 				B6D9F50529DDCCAD00E71621 /* FoodDetail.swift */,
-				CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */,
 				CC65C5FD29DB877900B9707A /* CurrentWorkout.swift */,
 				CCF3361929D698CA00AA0CA3 /* MainFitness.swift */,
 				B6F82F8029D48F4600D16475 /* NutritionPage.swift */,
@@ -184,7 +219,6 @@
 				B6D9F50B29DE20C700E71621 /* SearchFoodForm.swift */,
 				B6D9F50929DDE7B000E71621 /* FoodEditorForm.swift */,
 				B6B4D74D29D6255000FFF7EF /* AddFoodPage.swift */,
-				B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */,
 				CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */,
 				CC9163EA29F0FAAD008D38B5 /* AddExercise.swift */,
 				CC9163EC29F0FABB008D38B5 /* EditExercise.swift */,
@@ -267,6 +301,7 @@
 				CCB0FFEC29D3A47D00F94F09 /* User.swift in Sources */,
 				B6F82F8429D48FA900D16475 /* DataStore.swift in Sources */,
 				CCEA93E729D15D76006E4CF6 /* ContentView.swift in Sources */,
+				207093AD29F20D990053B06A /* APIClient.swift in Sources */,
 				CC65C5F829D9911600B9707A /* WorkoutHistory.swift in Sources */,
 				CC65C5FA29DA3B0B00B9707A /* SingleWorkoutHistory.swift in Sources */,
 				CC9163EF29F104D0008D38B5 /* AddExerciseTemplate.swift in Sources */,
@@ -284,19 +319,26 @@
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
 				B6D9F50629DDCCAD00E71621 /* FoodDetail.swift in Sources */,
 				CC78795929EB703000975D56 /* NewWorkoutTemplate.swift in Sources */,
+				207093AA29F20D760053B06A /* ExerciseAPIEndpoint.swift in Sources */,
 				B6B4D75029D8D17600FFF7EF /* FoodLog.swift in Sources */,
 				B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */,
 				CC9163ED29F0FABB008D38B5 /* EditExercise.swift in Sources */,
+				207093A829F20D470053B06A /* ExerciseAPIService.swift in Sources */,
 				CCF3361C29D9412A00AA0CA3 /* ExerciseTemplateForm.swift in Sources */,
 				CCF3361E29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift in Sources */,
 				CC9163EB29F0FAAD008D38B5 /* AddExercise.swift in Sources */,
 				CC65C5FE29DB877900B9707A /* CurrentWorkout.swift in Sources */,
 				CCF3361629D5494200AA0CA3 /* WorkoutTemplates.swift in Sources */,
 				CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */,
+				207093B129F216FC0053B06A /* ExerciseLoader.swift in Sources */,
 				CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */,
+				207093B729F222CB0053B06A /* FoodLoader.swift in Sources */,
 				B6D9F50C29DE20C700E71621 /* SearchFoodForm.swift in Sources */,
+				207093B529F222C10053B06A /* FoodAPIEndpoint.swift in Sources */,
 				CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,
+				207093B329F222AE0053B06A /* FoodAPIService.swift in Sources */,
+				207093AF29F20DA00053B06A /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,12 +464,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fitness-Nutriton-App/Fitness-Nutriton-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fitness-Nutriton-App/Preview Content\"";
-				DEVELOPMENT_TEAM = P5DHFHCAAT;
+				DEVELOPMENT_TEAM = HT28X4A564;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fitness-Nutriton-App/Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "App Needs Health";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "App Needs Health";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,12 +498,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fitness-Nutriton-App/Fitness-Nutriton-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fitness-Nutriton-App/Preview Content\"";
 				DEVELOPMENT_TEAM = P5DHFHCAAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fitness-Nutriton-App/Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "App Needs Health";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "App Needs Health";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

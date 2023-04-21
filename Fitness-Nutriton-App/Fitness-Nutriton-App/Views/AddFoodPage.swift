@@ -6,6 +6,7 @@ struct AddFoodPage: View {
     @Binding var data: Food.FormData
     @State var creatingNewFood: Bool = false
     @State var searchTerm: String = ""
+    @StateObject var foodLoader: FoodLoader = FoodLoader(apiClient: FoodAPIService())
     
     var body: some View {
         ScrollView {
@@ -22,7 +23,7 @@ struct AddFoodPage: View {
             if (creatingNewFood) {
                 FoodEditorForm(data: $data)
             } else {
-                SearchFoodForm(searchTerm: $searchTerm)
+                SearchFoodForm(searchTerm: $searchTerm).environmentObject(foodLoader)
             }
         }.frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.9)
     }
