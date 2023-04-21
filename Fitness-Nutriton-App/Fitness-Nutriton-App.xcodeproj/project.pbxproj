@@ -10,8 +10,12 @@
 		B68B359429DB8165009ADEB5 /* MyTDECalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359329DB8165009ADEB5 /* MyTDECalculator.swift */; };
 		B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359529DB81A0009ADEB5 /* MyFoodLog.swift */; };
 		B68B359829DB81EA009ADEB5 /* MyCaloricIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359729DB81EA009ADEB5 /* MyCaloricIntake.swift */; };
-		B6B4D74E29D6255000FFF7EF /* NewFoodForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */; };
+		B6B4D74E29D6255000FFF7EF /* AddFoodPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B4D74D29D6255000FFF7EF /* AddFoodPage.swift */; };
 		B6B4D75029D8D17600FFF7EF /* FoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B4D74F29D8D17600FFF7EF /* FoodLog.swift */; };
+		B6D9F50629DDCCAD00E71621 /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9F50529DDCCAD00E71621 /* FoodDetail.swift */; };
+		B6D9F50829DDD91B00E71621 /* EditFoodForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9F50729DDD91B00E71621 /* EditFoodForm.swift */; };
+		B6D9F50A29DDE7B000E71621 /* FoodEditorForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9F50929DDE7B000E71621 /* FoodEditorForm.swift */; };
+		B6D9F50C29DE20C700E71621 /* SearchFoodForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D9F50B29DE20C700E71621 /* SearchFoodForm.swift */; };
 		B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F7C29D48CBF00D16475 /* Food.swift */; };
 		B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F7E29D48E6200D16475 /* TabContainer.swift */; };
 		B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F82F8029D48F4600D16475 /* NutritionPage.swift */; };
@@ -44,8 +48,12 @@
 		B68B359329DB8165009ADEB5 /* MyTDECalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTDECalculator.swift; sourceTree = "<group>"; };
 		B68B359529DB81A0009ADEB5 /* MyFoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFoodLog.swift; sourceTree = "<group>"; };
 		B68B359729DB81EA009ADEB5 /* MyCaloricIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCaloricIntake.swift; sourceTree = "<group>"; };
-		B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodForm.swift; sourceTree = "<group>"; };
+		B6B4D74D29D6255000FFF7EF /* AddFoodPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodPage.swift; sourceTree = "<group>"; };
 		B6B4D74F29D8D17600FFF7EF /* FoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLog.swift; sourceTree = "<group>"; };
+		B6D9F50529DDCCAD00E71621 /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
+		B6D9F50729DDD91B00E71621 /* EditFoodForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFoodForm.swift; sourceTree = "<group>"; };
+		B6D9F50929DDE7B000E71621 /* FoodEditorForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEditorForm.swift; sourceTree = "<group>"; };
+		B6D9F50B29DE20C700E71621 /* SearchFoodForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFoodForm.swift; sourceTree = "<group>"; };
 		B6F82F7C29D48CBF00D16475 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		B6F82F7E29D48E6200D16475 /* TabContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainer.swift; sourceTree = "<group>"; };
 		B6F82F8029D48F4600D16475 /* NutritionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionPage.swift; sourceTree = "<group>"; };
@@ -165,11 +173,17 @@
 				CCAA76A529E187C000F45B8C /* ExerciseForm.swift */,
 				CCF3361B29D9412A00AA0CA3 /* ExerciseTemplateForm.swift */,
 				CCF3361D29D95F5F00AA0CA3 /* WorkoutTemplateForm.swift */,
+				B6D9F50729DDD91B00E71621 /* EditFoodForm.swift */,
+				B6D9F50529DDCCAD00E71621 /* FoodDetail.swift */,
+				CC65C5FD29DB877900B9707A /* WorkoutFromTemplate.swift */,
 				CC65C5FD29DB877900B9707A /* CurrentWorkout.swift */,
 				CCF3361929D698CA00AA0CA3 /* MainFitness.swift */,
 				B6F82F8029D48F4600D16475 /* NutritionPage.swift */,
 				CCEA93F329D15E7A006E4CF6 /* BMR Calculator.swift */,
 				B6F82F7E29D48E6200D16475 /* TabContainer.swift */,
+				B6D9F50B29DE20C700E71621 /* SearchFoodForm.swift */,
+				B6D9F50929DDE7B000E71621 /* FoodEditorForm.swift */,
+				B6B4D74D29D6255000FFF7EF /* AddFoodPage.swift */,
 				B6B4D74D29D6255000FFF7EF /* NewFoodForm.swift */,
 				CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */,
 				CC9163EA29F0FAAD008D38B5 /* AddExercise.swift */,
@@ -257,15 +271,18 @@
 				CC65C5FA29DA3B0B00B9707A /* SingleWorkoutHistory.swift in Sources */,
 				CC9163EF29F104D0008D38B5 /* AddExerciseTemplate.swift in Sources */,
 				CC65C5FC29DABB4F00B9707A /* SingleTemplate.swift in Sources */,
-				B6B4D74E29D6255000FFF7EF /* NewFoodForm.swift in Sources */,
+				B6D9F50A29DDE7B000E71621 /* FoodEditorForm.swift in Sources */,
+				B6B4D74E29D6255000FFF7EF /* AddFoodPage.swift in Sources */,
 				B68B359429DB8165009ADEB5 /* MyTDECalculator.swift in Sources */,
 				B68B359829DB81EA009ADEB5 /* MyCaloricIntake.swift in Sources */,
 				B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */,
 				CC9163F129F104DE008D38B5 /* EditExerciseTemplate.swift in Sources */,
 				B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */,
+				B6D9F50829DDD91B00E71621 /* EditFoodForm.swift in Sources */,
 				CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */,
 				B6F82F7F29D48E6200D16475 /* TabContainer.swift in Sources */,
 				CCEA93F429D15E7A006E4CF6 /* BMR Calculator.swift in Sources */,
+				B6D9F50629DDCCAD00E71621 /* FoodDetail.swift in Sources */,
 				CC78795929EB703000975D56 /* NewWorkoutTemplate.swift in Sources */,
 				B6B4D75029D8D17600FFF7EF /* FoodLog.swift in Sources */,
 				B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */,
@@ -277,6 +294,7 @@
 				CCF3361629D5494200AA0CA3 /* WorkoutTemplates.swift in Sources */,
 				CCAA76A629E187C000F45B8C /* ExerciseForm.swift in Sources */,
 				CCB0FFEE29D496CE00F94F09 /* Workout.swift in Sources */,
+				B6D9F50C29DE20C700E71621 /* SearchFoodForm.swift in Sources */,
 				CCF3361829D5568B00AA0CA3 /* TemplateDetails.swift in Sources */,
 				CCEA93E529D15D76006E4CF6 /* Fitness_Nutriton_App.swift in Sources */,
 			);

@@ -4,8 +4,8 @@ import SwiftUI
 struct Food: Identifiable {
     var id: UUID = UUID()
     var name: String
-    var servingSize: Int?
-    var servingSizeUnit: ServingSizeUnit?
+    var servingSize: Int
+    var servingSizeUnit: ServingSizeUnit
     var calories: Int?
     var protein: Int?
     var fat: Int?
@@ -14,7 +14,7 @@ struct Food: Identifiable {
     
     enum ServingSizeUnit: String, CaseIterable, Identifiable {
         var id: Self { self }
-        case g, oz, lb
+        case g, oz, lb, cup, other
     }
     
     enum MacroNutrients: String {
@@ -32,27 +32,34 @@ struct Food: Identifiable {
     }
 
     var dataForForm: FormData {
-      FormData(
-        name: name,
-        servingSize: servingSize != nil ? String(servingSize!) : "",
-        servingSizeUnit: servingSizeUnit ?? ServingSizeUnit.g,
-        calories: calories != nil ? String(calories!) : "",
-        protein: protein != nil ? String(protein!) : "",
-        fat: fat != nil ? String(fat!) : "",
-        carbs: carbs != nil ? String(carbs!) : ""
-      )
+        get {FormData(
+            name: name,
+            servingSize: String(servingSize),
+            servingSizeUnit: servingSizeUnit,
+            calories: calories != nil ? String(calories!) : "",
+            protein: protein != nil ? String(protein!) : "",
+            fat: fat != nil ? String(fat!) : "",
+            carbs: carbs != nil ? String(carbs!) : "")
+        }
+        set {}
     }
 
     static func create(from formData: FormData) -> Food {
         Food(
             name: formData.name,
-            servingSize: formData.servingSize.filter{"0123456789".contains($0)}.isEmpty ? nil : Int(formData.servingSize),
+            servingSize: formData.calories.filter{"0123456789".contains($0)}.isEmpty ? 0 : Int(formData.servingSize) ?? 0,
             servingSizeUnit: formData.servingSizeUnit,
             calories: formData.calories.filter{"0123456789".contains($0)}.isEmpty ? nil : Int(formData.calories),
             protein: formData.protein.filter{"0123456789".contains($0)}.isEmpty ? nil : Int(formData.protein),
             fat: formData.fat.filter{"0123456789".contains($0)}.isEmpty ? nil : Int(formData.fat),
             carbs: formData.carbs.filter{"0123456789".contains($0)}.isEmpty ? nil : Int(formData.carbs))
     }
-    
-    
+}
+
+extension Food {
+    static let previewData: [Food] = [
+        Food(name: "Orange", servingSize: 140, servingSizeUnit: ServingSizeUnit.g, calories: 73, protein: 1, fat: 0, carbs: 16),
+        Food(name: "Steak", servingSize: 8, servingSizeUnit: ServingSizeUnit.oz, calories: 650, protein: 60, fat: 45, carbs: 0),
+        Food(name: "Popcorn", servingSize: 3, servingSizeUnit: ServingSizeUnit.cup, calories: 93, protein: 3, fat: 1, carbs: 19)
+    ]
 }
