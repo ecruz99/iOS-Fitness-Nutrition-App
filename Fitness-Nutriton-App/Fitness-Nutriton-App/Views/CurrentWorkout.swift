@@ -173,7 +173,7 @@ struct CurrentWorkout: View {
         .sheet(isPresented: $changeExercise){
             NavigationStack{
 
-                ExerciseForm(data: $editExerciseFormData).environmentObject(exerciseLoader)
+                EditExercise(data: $editExerciseFormData).environmentObject(exerciseLoader)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
@@ -195,7 +195,7 @@ struct CurrentWorkout: View {
         .sheet(isPresented: $presentingExercise){
             NavigationStack{
 
-                ExerciseForm(data: $newExerciseFormData).environmentObject(exerciseLoader)
+                AddExercise(data: $newExerciseFormData).environmentObject(exerciseLoader)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
@@ -221,6 +221,7 @@ struct CurrentWorkout_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             CurrentWorkout(workout: Workout.startWorkoutFromTemplate(from: WorkoutTemplate.previewData[0]))
+                .environmentObject(ExerciseLoader(apiClient: ExerciseAPIService()))
         }
     }
 }

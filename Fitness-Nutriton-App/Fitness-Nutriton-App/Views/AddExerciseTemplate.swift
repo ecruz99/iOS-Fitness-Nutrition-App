@@ -11,7 +11,8 @@ struct AddExerciseTemplate: View {
     @EnvironmentObject var dataStore: DataStore
     @Binding var data: ExerciseTemplate.FormData
     @State var apiExerciseTemplate: Bool = false
-    @State var searchTerm: String = ""
+    
+    
     var body: some View {
         ScrollView {
             Spacer(minLength: 40)
