@@ -24,6 +24,8 @@ struct CurrentWorkout: View {
     
     @State var editingExercise: Exercise?
     
+    @StateObject var exerciseLoader: ExerciseLoader = ExerciseLoader(apiClient: ExerciseAPIService())
+    
     @FocusState private var focusWeight: Bool
     @FocusState private var focusReps: Bool
     
@@ -170,7 +172,7 @@ struct CurrentWorkout: View {
         }
         .sheet(isPresented: $changeExercise){
             NavigationStack{
-                ExerciseForm(data: $editExerciseFormData)
+                ExerciseForm(data: $editExerciseFormData).environmentObject(exerciseLoader)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
@@ -191,7 +193,7 @@ struct CurrentWorkout: View {
         }
         .sheet(isPresented: $presentingExercise){
             NavigationStack{
-                ExerciseForm(data: $newExerciseFormData)
+                ExerciseForm(data: $newExerciseFormData).environmentObject(exerciseLoader)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
                             Button("Cancel"){
