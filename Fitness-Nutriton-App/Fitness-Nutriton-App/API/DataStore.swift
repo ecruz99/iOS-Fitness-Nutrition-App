@@ -13,7 +13,7 @@ class DataStore: ObservableObject {
     @Published var foodLog: FoodLog = FoodLog.previewData
     @Published var templates: [WorkoutTemplate] = WorkoutTemplate.previewData
     @Published var foodTemplates: [Food] = Food.previewData
-    var filteredFoodTemplates: [Food] = []
+    private var filteredFoodTemplates: [Food] = []
     
     @Published var workouts: [Workout] = Workout.previewData
     
@@ -27,6 +27,10 @@ class DataStore: ObservableObject {
         
     }
     
+    func removeFromFoodLog(_ food: Food) {
+        foodLog.foods.removeAll(where: {$0.id == food.id})
+    }
+    
     func updateFoodTemplates(food: Food) {
         foodTemplates.append(food)
     }
@@ -34,11 +38,20 @@ class DataStore: ObservableObject {
     func filterFoodTemplates(searchTerm: String) {
         let filteredList = foodTemplates.filter({$0.name.contains(searchTerm)})
         filteredFoodTemplates = filteredList
+        print(filteredFoodTemplates)
     }
     
     var filteredFoods: [Food] {
-        get { filteredFoodTemplates }
+        get { filteredFoodTemplates.sorted(by: {$0.name < $1.name}) }
         set { filteredFoodTemplates = [] }
+    }
+    
+    func resetFilteredFoodTemplates() {
+        filteredFoodTemplates = foodTemplates
+    }
+    
+    func isExistingFoodTemplate(food: Food) -> Bool {
+        return foodTemplates.contains(where: {$0.name == food.name && $0.servingSize == food.servingSize})
     }
     
     func deleteTemplate(_ template: WorkoutTemplate) {

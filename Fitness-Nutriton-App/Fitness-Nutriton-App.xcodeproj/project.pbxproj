@@ -15,6 +15,7 @@
 		207093B329F222AE0053B06A /* FoodAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B229F222AE0053B06A /* FoodAPIService.swift */; };
 		207093B529F222C10053B06A /* FoodAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B429F222C10053B06A /* FoodAPIEndpoint.swift */; };
 		207093B729F222CB0053B06A /* FoodLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207093B629F222CB0053B06A /* FoodLoader.swift */; };
+		B6756BB029F4446F00C826DB /* NewFoodFromExisting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6756BAF29F4446F00C826DB /* NewFoodFromExisting.swift */; };
 		B68B359429DB8165009ADEB5 /* MyTDECalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359329DB8165009ADEB5 /* MyTDECalculator.swift */; };
 		B68B359629DB81A0009ADEB5 /* MyFoodLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359529DB81A0009ADEB5 /* MyFoodLog.swift */; };
 		B68B359829DB81EA009ADEB5 /* MyCaloricIntake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B359729DB81EA009ADEB5 /* MyCaloricIntake.swift */; };
@@ -64,6 +65,7 @@
 		207093B629F222CB0053B06A /* FoodLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLoader.swift; sourceTree = "<group>"; };
 		207093B829F22FE20053B06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		207093B929F2301B0053B06A /* Fitness-Nutriton-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fitness-Nutriton-App.entitlements"; sourceTree = "<group>"; };
+		B6756BAF29F4446F00C826DB /* NewFoodFromExisting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodFromExisting.swift; sourceTree = "<group>"; };
 		B68B359329DB8165009ADEB5 /* MyTDECalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTDECalculator.swift; sourceTree = "<group>"; };
 		B68B359529DB81A0009ADEB5 /* MyFoodLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFoodLog.swift; sourceTree = "<group>"; };
 		B68B359729DB81EA009ADEB5 /* MyCaloricIntake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCaloricIntake.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				B6D9F50B29DE20C700E71621 /* SearchFoodForm.swift */,
 				B6D9F50929DDE7B000E71621 /* FoodEditorForm.swift */,
 				B6B4D74D29D6255000FFF7EF /* AddFoodPage.swift */,
+				B6756BAF29F4446F00C826DB /* NewFoodFromExisting.swift */,
 				CC78795829EB703000975D56 /* NewWorkoutTemplate.swift */,
 				CC9163EA29F0FAAD008D38B5 /* AddExercise.swift */,
 				CC9163EC29F0FABB008D38B5 /* EditExercise.swift */,
@@ -315,6 +318,7 @@
 				B68B359829DB81EA009ADEB5 /* MyCaloricIntake.swift in Sources */,
 				B6F82F8129D48F4600D16475 /* NutritionPage.swift in Sources */,
 				CC9163F129F104DE008D38B5 /* EditExerciseTemplate.swift in Sources */,
+				B6756BB029F4446F00C826DB /* NewFoodFromExisting.swift in Sources */,
 				B6F82F7D29D48CBF00D16475 /* Food.swift in Sources */,
 				B6D9F50829DDD91B00E71621 /* EditFoodForm.swift in Sources */,
 				CCF3361A29D698CA00AA0CA3 /* MainFitness.swift in Sources */,

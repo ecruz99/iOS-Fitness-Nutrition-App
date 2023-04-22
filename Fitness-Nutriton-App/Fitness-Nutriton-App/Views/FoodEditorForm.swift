@@ -49,7 +49,10 @@ struct FoodEditorForm: View {
         Button(hasBeenAdded ? "Added!" : "Add Food to Daily Log") {
             let newFood = Food.create(from: data)
             dataStore.updateFoodLog(food: newFood)
-            dataStore.updateFoodTemplates(food: newFood)
+            if !dataStore.isExistingFoodTemplate(food: newFood) {
+                dataStore.updateFoodTemplates(food: newFood)
+            }
+            hasBeenAdded = true
         }.buttonStyle(.borderedProminent)
     }
 }
