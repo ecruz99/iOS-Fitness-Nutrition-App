@@ -81,6 +81,7 @@ extension Food {
     static let previewData: [Food] = [
         Food(name: "Orange", servingSize: 140, servingSizeUnit: ServingSizeUnit.g, calories: 73, protein: 1, fat: 0, carbs: 16),
         Food(name: "Steak", servingSize: 8, servingSizeUnit: ServingSizeUnit.oz, calories: 650, protein: 60, fat: 45, carbs: 0),
-        Food(name: "Popcorn", servingSize: 3, servingSizeUnit: ServingSizeUnit.cup, calories: 93, protein: 3, fat: 1, carbs: 19)
+        Food(name: "Popcorn", servingSize: 3, servingSizeUnit: ServingSizeUnit.cup, calories: 93, protein: 3, fat: 1, carbs: 19),
+        Food(name: "Blueberries", servingSize: 1, servingSizeUnit: ServingSizeUnit.cup, calories: 80, protein: 1, fat: 0, carbs: 21)
     ]
 }

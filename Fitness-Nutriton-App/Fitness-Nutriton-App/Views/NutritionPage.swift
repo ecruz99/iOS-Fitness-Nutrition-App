@@ -32,6 +32,7 @@ struct NutritionPage: View {
             Spacer(minLength: 20)
             Button("Add Food") {
                 isPresentingAddFoodForm.toggle()
+                dataStore.resetFilteredFoodTemplates()
             }.buttonStyle(.borderedProminent).padding()
             Spacer(minLength: 20)
             MyCaloricIntake(

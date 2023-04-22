@@ -14,66 +14,81 @@ struct SearchFoodForm: View {
                     TextField("Search", text: $searchTerm).textFieldStyle(RoundedBorderTextFieldStyle()).frame(minHeight: 40)
                     Button("Search") {
                         Task {
-                            await foodLoader.loadFood(food: searchTerm)
-                            
+                            if !searchTerm.isEmpty {
+                                dataStore.filterFoodTemplates(searchTerm: searchTerm)
+                                displaySearch = true
+                                await foodLoader.loadFood(food: searchTerm)
+                            }
                         }
                     }
-                    
-//                    Button("Search") {
-//                        Task {
-//                            if !searchTerm.isEmpty {
-//                                dataStore.filterFoodTemplates(searchTerm: searchTerm)
-//                                displaySearch = true;
-//                            } else {
-//                                print("Empty search")
-//                            }
-//                        }
-//                    }
-                    
-                    Spacer(minLength: 30)
-                    //Text("Search Results").font(.title2).frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    
-                    
-                    if (displaySearch) {
-                        MyFoodsSearchResults(
-                            myFoodTemplates: dataStore.foodTemplates,
-                            searchTerm: searchTerm)
+                    Button("Clear") {
+                        Task {
+                            searchTerm = ""
+                            dataStore.resetFilteredFoodTemplates()
+                            displaySearch = false
+                        }
                     }
+                    Spacer(minLength: 30)
                 }.frame(width: UIScreen.main.bounds.width * 0.9)
                 
-                switch foodLoader.state {
-                case .idle: Color.clear
-                case .loading: ProgressView()
-                case .failed(let error): Text(error.localizedDescription)
-                case .success(let apiResponse):
-                    HStack {
-                        Text(apiResponse.parsed.first?.food.label ?? "Failure")
-                        Text(" : ")
-                        Text(String(apiResponse.parsed.first?.food.nutrients.ENERC_KCAL ?? 0.0))
+                Divider()
+                MyFoodsSearchResults(foods: $dataStore.filteredFoods)
+
+                if (displaySearch) {
+                    Divider()
+                    switch foodLoader.state {
+                    case .idle: Color.clear
+                    case .loading: ProgressView()
+                    case .failed(let error): Text(error.localizedDescription)
+                    case .success(let apiResponse):
+                        SuggestionsFromAPI(apiResponse: apiResponse)
                     }
                 }
             }
         }
     }
     struct MyFoodsSearchResults: View {
-        @EnvironmentObject var dataStore: DataStore
-        var myFoodTemplates: [Food]
-        var searchTerm: String
+        //@EnvironmentObject var dataStore: DataStore
+        @Binding var foods: [Food]
         
         var body: some View {
             VStack(alignment: .leading) {
-                ForEach($dataStore.filteredFoods) { $food in
-                    NavigationLink(
-                        destination: NewFoodFromExisting(
-                            data: $food.dataForForm,
-                            food: food,
-                            originalServingSize: food.servingSize)) {
-                                FoodDetail(food: food)
-                                    .frame(alignment: .leading).padding(.bottom, 8)
-                            }
+                Text("My Food Bank").font(.title2).bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 5)
+                if foods.isEmpty {
+                    Text("No matching foods in food bank")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                } else {
+                    ForEach($foods) { $food in
+                        NavigationLink(
+                            destination: NewFoodFromExisting(
+                                data: $food.dataForForm,
+                                food: food,
+                                originalServingSize: food.servingSize)) {
+                                    FoodDetail(food: food)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.bottom, 8)
+                                }
+                    }
                 }
-            }.padding(10)
+            }.frame(maxWidth: .infinity)
+        }
+    }
+    struct SuggestionsFromAPI: View {
+        var apiResponse: FoodResponse
+        
+        var body: some View {
+            VStack {
+                Text("Suggestions").font(.title2).bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 5)
+                HStack {
+                    Text(apiResponse.parsed.first?.food.label ?? "Failure")
+                    Text(" : ")
+                    Text(String(apiResponse.parsed.first?.food.nutrients.ENERC_KCAL ?? 0.0))
+                }.frame(maxWidth: .infinity, alignment: .leading)
+            }.frame(maxWidth: .infinity)
         }
     }
 }
