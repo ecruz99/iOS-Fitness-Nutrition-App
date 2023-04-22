@@ -32,7 +32,7 @@ struct MainFitness: View {
                         }
                         
                         Text("Begin a workout with no template")
-                            .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.leading)
                     }
                     
                     .padding(.bottom, 40)
@@ -46,7 +46,7 @@ struct MainFitness: View {
                         }
                         .padding(.trailing, 10)
                         Text("View/edit templates or begin workout from a template")
-                            .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.leading)
                             .padding(.trailing, 5)
                     }
                     .padding(.leading, 10)
@@ -61,7 +61,7 @@ struct MainFitness: View {
                                 .padding(.trailing, 10)
                         }
                         Text("View your completed workouts")
-                            .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.leading)
                     }
                     Spacer()
                 }
