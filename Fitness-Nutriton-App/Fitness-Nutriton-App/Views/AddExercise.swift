@@ -76,7 +76,7 @@ struct AddExercise: View {
                 }
             } else {
                 ExerciseForm(data: $data)
-                    .padding(.top, 50)
+                    .padding(.top, 10)
             }
         }.frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.9)    }
 }

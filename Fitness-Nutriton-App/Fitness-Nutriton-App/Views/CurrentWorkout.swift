@@ -29,17 +29,26 @@ struct CurrentWorkout: View {
     @FocusState private var focusWeight: Bool
     @FocusState private var focusReps: Bool
     
+    @State var editingWorkoutData = Workout.FormData()
+    @State var presentingWorkoutName: Bool = false
+    
     var body: some View {
         ScrollView{
-            TextField("Name", text: $workout.name)
-                .padding(8)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.red)
-                .background(RoundedRectangle(cornerRadius: 10).fill(Color.gray.opacity(0.15)).shadow(radius: 3))
-                .fixedSize()
+            HStack{
+                Text(workout.name)
+                    .padding(5)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.red)
+                Button{
+                    presentingWorkoutName = true
+                    editingWorkoutData = workout.dataForForm
+                } label: {
+                    Image(systemName: "rectangle.and.pencil.and.ellipsis")
+                }
+            }
             Text(workout.startedAt.formatted(date: .abbreviated, time: .shortened))
-                .padding(.bottom)
+                .padding(.bottom, 20)
             ForEach($workout.exercises){ $exercise in
                 HStack{
                     Text("\(exercise.name) (\(exercise.muscle))")
@@ -169,6 +178,13 @@ struct CurrentWorkout: View {
                     dismiss()
                 }
             }
+            ToolbarItemGroup(placement: .keyboard){
+                Spacer()
+                Button("Done"){
+                    focusWeight = false
+                    focusReps = false
+                }
+            }
         }
         .sheet(isPresented: $changeExercise){
             NavigationStack{
@@ -212,6 +228,30 @@ struct CurrentWorkout: View {
                             }
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
+            }
+        }
+        .sheet(isPresented: $presentingWorkoutName){
+            NavigationStack{
+                WorkoutForm(data: $editingWorkoutData)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarLeading){
+                            Button("Cancel"){
+                                presentingWorkoutName = false
+                            }
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button("Save"){
+                                let editedWorkout = Workout.update(workout, from: editingWorkoutData)
+                                workout.changeName(editedWorkout.name)
+                                presentingWorkoutName = false
+                                newExerciseFormData = Exercise.FormData()
+                            }
+                        }
+                    }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
     }

@@ -108,6 +108,27 @@ struct Workout: Identifiable{
             exercises[index] = exercise
         }
     }
+    
+    struct FormData{
+        var name: String = ""
+        
+    }
+    
+    var dataForForm: FormData {
+        FormData(
+            name: name
+        )
+    }
+    
+    static func update(_ workout: Workout, from formData: FormData) -> Workout {
+        var workout = workout
+        workout.name = formData.name
+        return workout
+    }
+    
+    mutating func changeName(_ name: String){
+        self.name = name
+    }
 }
 
 extension Workout{
