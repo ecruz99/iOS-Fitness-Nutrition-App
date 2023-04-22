@@ -40,6 +40,7 @@ struct ExerciseTemplateForm: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .background(RoundedRectangle(cornerRadius: 5)
                         .stroke(Color.black, lineWidth: 3))
+                    .keyboardType(.default)
             }
             .padding(.bottom, 40)
             .padding(.trailing, 2)
