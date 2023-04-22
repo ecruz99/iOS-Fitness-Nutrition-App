@@ -107,6 +107,8 @@ struct NewWorkoutTemplate: View {
                             }
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
         .sheet(isPresented: $presentingExerciseTemplateEdit){
@@ -130,6 +132,8 @@ struct NewWorkoutTemplate: View {
                             }
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
         
@@ -152,6 +156,8 @@ struct NewWorkoutTemplate: View {
                             
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
     }

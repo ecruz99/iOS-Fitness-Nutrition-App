@@ -29,27 +29,6 @@ struct WorkoutTemplates: View {
                 }
             }
         }
-        .sheet(isPresented: $presentingWorkoutTemplate){
-            NavigationStack{
-                WorkoutTemplateForm(data: $newWorkoutTemplateFormData)
-                    .toolbar{
-                        ToolbarItem(placement: .navigationBarLeading){
-                            Button("Cancel"){
-                                presentingWorkoutTemplate = false
-                                newWorkoutTemplateFormData = WorkoutTemplate.FormData()
-                            }
-                        }
-                        ToolbarItem(placement: .navigationBarTrailing){
-                            Button("Save"){
-                                let newWorkoutTemplate = WorkoutTemplate.create(from: newWorkoutTemplateFormData)
-                                dataStore.addWorkoutTemplate(newWorkoutTemplate)
-                                presentingWorkoutTemplate = false
-                                newWorkoutTemplateFormData = WorkoutTemplate.FormData()
-                            }
-                        }
-                    }
-            }
-        }
     }
 }
 

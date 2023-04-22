@@ -206,6 +206,8 @@ struct CurrentWorkout: View {
                             }
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
         .sheet(isPresented: $presentingExercise){

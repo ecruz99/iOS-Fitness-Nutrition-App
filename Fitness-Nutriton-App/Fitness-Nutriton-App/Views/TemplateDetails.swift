@@ -104,6 +104,8 @@ struct TemplateDetails: View {
                             }
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
         .sheet(isPresented: $presentingExerciseTemplateEdit){
@@ -127,6 +129,8 @@ struct TemplateDetails: View {
                             }
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
         .sheet(isPresented: $presentingWorkoutTemplate){
@@ -147,6 +151,8 @@ struct TemplateDetails: View {
                             
                         }
                     }
+                    .toolbarBackground(.visible)
+                    .toolbarColorScheme(.dark)
             }
         }
         .confirmationDialog("Do you want to delete this template?", isPresented: $deleteConfirm, titleVisibility: .visible){
