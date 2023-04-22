@@ -27,6 +27,10 @@ class DataStore: ObservableObject {
         
     }
     
+    func removeFromFoodLog(_ food: Food) {
+        foodLog.foods.removeAll(where: {$0.id == food.id})
+    }
+    
     func updateFoodTemplates(food: Food) {
         foodTemplates.append(food)
     }
