@@ -44,7 +44,7 @@ struct NewFoodFromExisting: View {
                                 carbs: newAmount(quant: food.carbs ?? 0, num: Double(newServingSize) ?? 0, denom: Double(originalServingSize)))
                             )
                             dataStore.updateFoodLog(food: newFood)
-                            if !isExistingTemplate(newFood: newFood, existingTemplates: dataStore.foodTemplates) {
+                            if !dataStore.isExistingFoodTemplate(food: newFood) {
                                 dataStore.updateFoodTemplates(food: newFood)
                             }
                             hasBeenAdded = true;
@@ -80,8 +80,4 @@ func newAmount(quant: Int, num: Double, denom: Double) -> String {
     let result: Double = Double(quant) * (num / denom)
     let newQuantity = Int(result.rounded(.toNearestOrAwayFromZero))
     return String(newQuantity)
-}
-
-func isExistingTemplate(newFood: Food, existingTemplates: [Food]) -> Bool {
-    return existingTemplates.contains(where: {$0.name == newFood.name && $0.servingSize == newFood.servingSize})
 }

@@ -46,6 +46,10 @@ class DataStore: ObservableObject {
         filteredFoodTemplates = foodTemplates
     }
     
+    func isExistingFoodTemplate(food: Food) -> Bool {
+        return foodTemplates.contains(where: {$0.name == food.name && $0.servingSize == food.servingSize})
+    }
+    
     func deleteTemplate(_ template: WorkoutTemplate) {
         if let index = templates.firstIndex(where: { $0.id == template.id }) {
             templates.remove(at: index)
