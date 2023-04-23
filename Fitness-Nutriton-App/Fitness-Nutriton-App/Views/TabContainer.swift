@@ -14,6 +14,10 @@ struct TabContainer: View {
     var body: some View {
         TabView{
             NavigationStack {
+                UserInfo()
+            }
+            .tabItem { Label("User Info", systemImage: "person.circle") }
+            NavigationStack {
                 MainFitness()
             }
             .tabItem { Label("Fitness", systemImage: "figure.run") }

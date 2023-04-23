@@ -91,4 +91,10 @@ class DataStore: ObservableObject {
             templates[index] = template
         }
     }
+    
+    func updateUser(_ user: User){
+        if let index = userList.firstIndex(where: {$0.id == user.id} ) {
+            userList[index] = user
+        }
+    }
 }
