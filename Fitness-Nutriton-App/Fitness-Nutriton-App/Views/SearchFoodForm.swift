@@ -84,8 +84,10 @@ struct SearchFoodForm: View {
                     .padding(.bottom, 5)
                 HStack {
                     Text(apiResponse.parsed.first?.food.label ?? "Failure")
-                    Text(" : ")
-                    Text(String(apiResponse.parsed.first?.food.nutrients.ENERC_KCAL ?? 0.0))
+                    Text(":")
+                    Text("Calories: "+String(apiResponse.parsed.first?.food.nutrients.ENERC_KCAL ?? 0.0)+"g")
+                    Text("Protein: "+String(apiResponse.parsed.first?.food.nutrients.PROCNT ?? 0.0)+"g")
+                    Text("Fat: "+String(apiResponse.parsed.first?.food.nutrients.FAT ?? 0.0)+"g")
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }.frame(maxWidth: .infinity)
         }
